@@ -1,0 +1,809 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clans Machina - Intelligent Solar Systems. AI-powered solar energy for homes and businesses in India." />
+  <title>Clans Machina | Intelligent Solar Systems</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <img src="image/clans_logo.png" alt="Clans Machina" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Technology</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#sustainability">Impact</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-picker-btn" id="themePickerBtn" aria-label="Switch theme" title="Switch theme">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/><circle cx="9" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/></svg>
+          Themes
+        </button>
+        <a href="#contact" class="btn btn-ghost">Contact</a>
+        <a href="#calculator" class="btn btn-neon">Get Free Quote</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span>AI-Powered Solar Intelligence</div>
+      <h1 class="hero-headline">Powering Tomorrow<br/><span class="gradient-text">with Intelligent</span><br/>Solar Systems</h1>
+      <p class="hero-sub">Save money, reduce bills, and switch to clean energy effortlessly.<br/>Smart solar solutions powered by AI — built for the future.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-neon btn-lg">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Get Free Quote
+        </a>
+        <a href="#calculator" class="btn btn-glass btn-lg">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="9" y="3" width="6" height="5" rx="1" stroke="currentColor" stroke-width="2"/></svg>
+          Calculate Savings
+        </a>
+      </div>
+      <div class="hero-trust-bar">
+        <div class="trust-item"><span class="trust-num" data-target="12000">0</span><span>+</span><p>Homes Powered</p></div>
+        <div class="trust-divider"></div>
+        <div class="trust-item"><span class="trust-num" data-target="90">0</span><span>%</span><p>Bill Reduction</p></div>
+        <div class="trust-divider"></div>
+        <div class="trust-item"><span class="trust-num" data-target="29">0</span><span>+</span><p>Cities</p></div>
+        <div class="trust-divider"></div>
+        <div class="trust-item"><span class="trust-num" data-target="48">0</span><span> ★</span><p>Rating (10k+)</p></div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>AI Solar Intelligence</span><span class="mx">✦</span>
+      <span>Smart Grid Tech</span><span class="mx">✦</span>
+      <span>Guaranteed Savings</span><span class="mx">✦</span>
+      <span>Zero Carbon Future</span><span class="mx">✦</span>
+      <span>Predictive Maintenance</span><span class="mx">✦</span>
+      <span>Real-time Monitoring</span><span class="mx">✦</span>
+      <span>AI Solar Intelligence</span><span class="mx">✦</span>
+      <span>Smart Grid Tech</span><span class="mx">✦</span>
+      <span>Guaranteed Savings</span><span class="mx">✦</span>
+      <span>Zero Carbon Future</span><span class="mx">✦</span>
+      <span>Predictive Maintenance</span><span class="mx">✦</span>
+      <span>Real-time Monitoring</span><span class="mx">✦</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Advanced Technology</span>
+        <h2>Where AI Meets <span class="gradient-text">Solar Power</span></h2>
+        <p>Our proprietary tech stack makes your solar system smarter, faster, and more profitable.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card feature-card--large glass-card" data-animate>
+          <div class="feature-card-glow glow-green"></div>
+          <div class="feature-icon-wrap icon-green">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>AI-Based Solar Recommendations</h3>
+          <p>Machine learning analyses your roof, location and consumption to recommend the perfect solar configuration with 97% accuracy.</p>
+          <div class="feature-stat"><span class="stat-val">97%</span><span class="stat-label">Accuracy Rate</span></div>
+        </div>
+        <div class="feature-card glass-card" data-animate>
+          <div class="feature-card-glow glow-blue"></div>
+          <div class="feature-icon-wrap icon-blue">
+            <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#00aaff" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="#00aaff" stroke-width="1.5" stroke-linecap="round"/><path d="M6 8h4M6 11h8" stroke="#00aaff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Smart Energy Dashboard</h3>
+          <p>Real-time monitoring of power generation, consumption, savings and grid export from one beautiful interface.</p>
+        </div>
+        <div class="feature-card glass-card" data-animate>
+          <div class="feature-card-glow glow-purple"></div>
+          <div class="feature-icon-wrap icon-purple">
+            <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Predictive Maintenance</h3>
+          <p>AI detects anomalies before they become problems. Proactive alerts keep your system at peak efficiency 365 days a year.</p>
+        </div>
+        <div class="feature-card glass-card" data-animate>
+          <div class="feature-card-glow glow-green"></div>
+          <div class="feature-icon-wrap icon-green">
+            <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#00ff88" stroke-width="1.5"/><path d="M9 7h6M9 11h6M9 15h4" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Mobile App Integration</h3>
+          <p>Full control of your solar system in your pocket. Track generation, savings, CO2 impact and referral rewards.</p>
+        </div>
+        <div class="feature-card glass-card" data-animate>
+          <div class="feature-card-glow glow-blue"></div>
+          <div class="feature-icon-wrap icon-blue">
+            <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00aaff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Guaranteed Savings Plan</h3>
+          <p>ClansZero — India's only plan with a money-back promise. We guarantee your savings or you get refunded.</p>
+        </div>
+        <div class="feature-card feature-card--accent glass-card" data-animate>
+          <div class="feature-card-glow glow-purple"></div>
+          <div class="feature-icon-wrap icon-purple">
+            <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Drone-based Site Survey</h3>
+          <p>Drone technology and satellite imaging map your rooftop with centimeter-level precision before any design begins.</p>
+          <div class="feature-stat"><span class="stat-val">3D</span><span class="stat-label">Preview Before Install</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calculator" id="calculator">
+    <div class="container">
+      <div class="calc-wrapper glass-card" data-animate>
+        <div class="calc-left">
+          <span class="section-tag">Interactive Tool</span>
+          <h2>Calculate Your <span class="gradient-text">Solar Savings</span></h2>
+          <p>Enter your details and instantly see how much you save, your ROI timeline, and environmental impact.</p>
+          <form class="calc-form" id="calcForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="monthlyBill">Monthly Electricity Bill</label>
+                <div class="input-wrap">
+                  <span class="input-prefix">&#8377;</span>
+                  <input type="number" id="monthlyBill" placeholder="e.g. 4000" min="0" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="location">Your Location</label>
+                <select id="location">
+                  <option value="1.4">Mumbai / Pune</option>
+                  <option value="1.6">Delhi / NCR</option>
+                  <option value="1.7">Rajasthan</option>
+                  <option value="1.5">Bengaluru / Chennai</option>
+                  <option value="1.45">Hyderabad</option>
+                  <option value="1.3">Kolkata / East</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="roofSize">Available Roof Area: <span id="roofSizeLabel">500 sq ft</span></label>
+              <input type="range" id="roofSize" min="100" max="2000" value="500" step="50" class="range-input" />
+            </div>
+            <button type="submit" class="btn btn-neon btn-full">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Calculate My Savings
+            </button>
+          </form>
+        </div>
+        <div class="calc-right" id="calcRight">
+          <div class="result-placeholder" id="calcPlaceholder">
+            <div class="placeholder-icon">
+              <svg width="56" height="56" fill="none" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1M4.22 4.22l.7.7m12.16 12.16.7.7M1 12h1m20 0h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="5" stroke="#00ff88" stroke-width="1.5"/></svg>
+            </div>
+            <p>Enter your details to see your personalised solar report</p>
+          </div>
+          <div class="result-cards" id="resultCards" style="display:none;">
+            <div class="result-card result-savings">
+              <span class="result-label">Annual Savings</span>
+              <span class="result-value" id="annualSavings">&#8377;0</span>
+              <span class="result-sub">Per Year</span>
+            </div>
+            <div class="result-card result-roi">
+              <span class="result-label">ROI Timeline</span>
+              <span class="result-value" id="roiYears">0 Yrs</span>
+              <span class="result-sub">Payback Period</span>
+            </div>
+            <div class="result-card result-co2">
+              <span class="result-label">CO2 Reduced</span>
+              <span class="result-value" id="co2Saved">0 T</span>
+              <span class="result-sub">Per Year</span>
+            </div>
+            <div class="result-card result-system">
+              <span class="result-label">System Size</span>
+              <span class="result-value" id="systemSize">0 kW</span>
+              <span class="result-sub">Recommended</span>
+            </div>
+            <a href="#contact" class="btn btn-neon btn-full" style="margin-top:1.2rem;">Book Free Site Survey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Our Solutions</span>
+        <h2>Solar For <span class="gradient-text">Every Need</span></h2>
+        <p>Whether homeowner, business, or housing society — custom solar solutions for maximum ROI.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass-card" data-animate>
+          <div class="service-img svc-homes">
+            <div class="svc-label">Residential</div>
+          </div>
+          <div class="service-body">
+            <span class="service-tag">For Homes</span>
+            <h3>Residential Solar</h3>
+            <p>Cut your home electricity bill by up to 90%. We design, install and maintain your rooftop system with zero hassle.</p>
+            <ul class="service-perks">
+              <li>Free rooftop survey and 3D design</li>
+              <li>Government subsidy assistance</li>
+              <li>25-year performance warranty</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Explore Homes</a>
+          </div>
+        </div>
+        <div class="service-card glass-card" data-animate>
+          <div class="service-img svc-commercial">
+            <div class="svc-label">Commercial</div>
+          </div>
+          <div class="service-body">
+            <span class="service-tag">For Business</span>
+            <h3>Commercial Solar</h3>
+            <p>Dramatically reduce operational energy costs. Smart systems designed for factories, offices, and institutions.</p>
+            <ul class="service-perks">
+              <li>Large-scale custom system design</li>
+              <li>Net metering and export revenue</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Explore Commercial</a>
+          </div>
+        </div>
+        <div class="service-card glass-card" data-animate>
+          <div class="service-img svc-society">
+            <div class="svc-label">Society</div>
+          </div>
+          <div class="service-body">
+            <span class="service-tag">For Societies</span>
+            <h3>Housing Society Solar</h3>
+            <p>Electrify common areas, lifts and pools using green energy. Reduce maintenance costs while raising property value.</p>
+            <ul class="service-perks">
+              <li>Common area electrification</li>
+              <li>Shared savings model</li>
+              <li>Society compliance handled</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline">Explore Societies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">How It Works</span>
+        <h2>From Site to <span class="gradient-text">Savings in 4 Steps</span></h2>
+        <p>A seamless installation experience using cutting-edge AI and drone technology.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" data-animate>
+          <div class="timeline-num">01</div>
+          <div class="timeline-card glass-card">
+            <div class="tl-icon icon-green"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" stroke="#00ff88" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="#00ff88" stroke-width="1.5"/></svg></div>
+            <span class="tl-tag">AI + Drone</span>
+            <h3>Site Analysis</h3>
+            <p>Drones scan your rooftop with centimeter precision. AI evaluates shading, orientation and optimal panel placement instantly.</p>
+          </div>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-item" data-animate>
+          <div class="timeline-num">02</div>
+          <div class="timeline-card glass-card">
+            <div class="tl-icon icon-blue"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#00aaff" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="#00aaff" stroke-width="1.5"/></svg></div>
+            <span class="tl-tag">3D Preview</span>
+            <h3>Custom Design</h3>
+            <p>We create a photorealistic 3D model of your solar setup. You see exactly how it looks before a single panel is installed.</p>
+          </div>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-item" data-animate>
+          <div class="timeline-num">03</div>
+          <div class="timeline-card glass-card">
+            <div class="tl-icon icon-purple"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="tl-tag">Expert Team</span>
+            <h3>Installation</h3>
+            <p>Certified engineers install your system in 1-2 days. We handle all subsidy paperwork and grid connection approvals end-to-end.</p>
+          </div>
+        </div>
+        <div class="timeline-connector"></div>
+        <div class="timeline-item" data-animate>
+          <div class="timeline-num">04</div>
+          <div class="timeline-card glass-card">
+            <div class="tl-icon icon-green"><svg width="24" height="24" fill="none" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="tl-tag">Live Forever</span>
+            <h3>Smart Monitoring</h3>
+            <p>Your system goes live. AI continuously monitors it, sends proactive maintenance alerts, and keeps you saving year after year.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Real Results</span>
+        <h2>Projects That <span class="gradient-text">Changed Lives</span></h2>
+        <p>From small rooftops to large commercial installations — every project is a step toward a cleaner planet.</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card glass-card" data-animate>
+          <div class="project-visual pv-1">
+            <div class="project-badge">Residential</div>
+            <div class="project-overlay"><span>Mumbai Home</span><strong>6 kW System · Rs.48,000/yr saved</strong></div>
+          </div>
+        </div>
+        <div class="project-card glass-card project-card--tall" data-animate>
+          <div class="project-visual pv-2">
+            <div class="project-badge">Commercial</div>
+            <div class="project-overlay"><span>Delhi Factory</span><strong>100 kW System · Rs.8.4L/yr saved</strong></div>
+          </div>
+        </div>
+        <div class="project-card glass-card" data-animate>
+          <div class="project-visual pv-3">
+            <div class="project-badge">Society</div>
+            <div class="project-overlay"><span>Pune Society</span><strong>25 kW System · Rs.1.8L/yr saved</strong></div>
+          </div>
+        </div>
+        <div class="project-card glass-card" data-animate>
+          <div class="project-visual pv-4">
+            <div class="project-badge">Residential</div>
+            <div class="project-overlay"><span>Bangalore Villa</span><strong>10 kW System · Rs.72,000/yr saved</strong></div>
+          </div>
+        </div>
+        <div class="project-card glass-card" data-animate>
+          <div class="project-visual pv-5">
+            <div class="project-badge">Commercial</div>
+            <div class="project-overlay"><span>Hyderabad Office</span><strong>50 kW System · Rs.4.2L/yr saved</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Customer Stories</span>
+        <h2>Trusted by <span class="gradient-text">Thousands of Families</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testi-card glass-card" data-animate>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">"Our electricity bill dropped from Rs.6,500 to under Rs.400. The AI recommendations and 3D design helped us visualise the whole project before it began. Exceptional service!"</p>
+          <div class="testi-footer">
+            <div class="testi-avatar">RV</div>
+            <div><strong>Rajan Verma</strong><span>Mumbai Homeowner · 8 kW System</span></div>
+          </div>
+        </div>
+        <div class="testi-card glass-card testi-featured" data-animate>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">"Clans Machina transformed our factory's energy costs. We're now saving over Rs.10 lakh annually. The real-time dashboard is incredible — we see every watt generated."</p>
+          <div class="testi-footer">
+            <div class="testi-avatar">AK</div>
+            <div><strong>Amita Kulkarni</strong><span>Factory Owner, Pune · 120 kW System</span></div>
+          </div>
+        </div>
+        <div class="testi-card glass-card" data-animate>
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-quote">"Zero effort on our part. They handled subsidy, installation and grid connection. Three months in and we've already saved Rs.18,000. Best investment decision ever."</p>
+          <div class="testi-footer">
+            <div class="testi-avatar">PS</div>
+            <div><strong>Priyanka Sharma</strong><span>Bangalore Villa · 5 kW System</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSTAINABILITY -->
+  <section class="sustainability" id="sustainability">
+    <div class="sustain-bg"></div>
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Our Planet</span>
+        <h2>The <span class="gradient-text">Green Impact</span> of Every Install</h2>
+        <p>Every panel we install makes a measurable difference to the planet.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#127807;</div><div class="impact-num" data-target="45000">0</div><span class="impact-unit">Tonnes</span><p>CO2 Prevented</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#9728;</div><div class="impact-num" data-target="180">0</div><span class="impact-unit">GWh</span><p>Clean Energy Generated</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#127795;</div><div class="impact-num" data-target="220000">0</div><span class="impact-unit">Trees</span><p>Equivalent Trees Planted</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#128167;</div><div class="impact-num" data-target="3200">0</div><span class="impact-unit">Cr Litres</span><p>Water Saved vs Thermal</p></div>
+      </div>
+      <div class="mission-box glass-card" data-animate>
+        <div class="mission-icon">
+          <svg width="36" height="36" fill="none" viewBox="0 0 24 24"><path d="M2.5 2v6h6M21.5 22v-6h-6" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5A10 10 0 0 0 20.8 16.8" stroke="#00ff88" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h3>Our Mission: Carbon Net Zero by 2040</h3>
+          <p>Clans Machina is committed to accelerating India's transition to clean energy. Every system we install is a step toward a world powered entirely by intelligent, renewable solar energy.</p>
+        </div>
+        <a href="#contact" class="btn btn-neon">Join the Mission</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP SECTION -->
+  <section class="app-section" id="app">
+    <div class="container">
+      <div class="app-wrapper">
+        <div class="app-content" data-animate>
+          <span class="section-tag">ClansMonitor App</span>
+          <h2>Your Solar System,<br/><span class="gradient-text">Always in Your Hands</span></h2>
+          <p>Track every watt, every rupee saved, and every kg of CO2 reduced — live from your phone.</p>
+          <ul class="app-features-list">
+            <li>
+              <div class="app-feat-icon green-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#00ff88" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><strong>Live Power Generation</strong><span>Real-time kW output from each panel string</span></div>
+            </li>
+            <li>
+              <div class="app-feat-icon blue-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="#00aaff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><strong>Bill Savings Tracker</strong><span>Daily, monthly and lifetime savings dashboard</span></div>
+            </li>
+            <li>
+              <div class="app-feat-icon purple-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <div><strong>Maintenance Alerts</strong><span>AI-triggered notifications for optimal uptime</span></div>
+            </li>
+            <li>
+              <div class="app-feat-icon gold-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#FFB84D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="#FFB84D" stroke-width="2"/></svg></div>
+              <div><strong>Referral and Rewards</strong><span>Track friends referred and earn ClansCredits</span></div>
+            </li>
+          </ul>
+          <div class="app-btns">
+            <a href="#" class="btn btn-glass">&#127381; App Store</a>
+            <a href="#" class="btn btn-glass">&#9654; Google Play</a>
+          </div>
+        </div>
+        <div class="app-phone" data-animate>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-header"><span>ClansMonitor</span><span class="live-dot">&#9679; LIVE</span></div>
+              <div class="phone-hero-stat">
+                <div class="phone-big-num">28.4 <span class="phone-unit">kWh</span></div>
+                <div class="phone-sub">Generated Today</div>
+              </div>
+              <div class="phone-bar-chart">
+                <div class="bar" style="--h:45%"></div>
+                <div class="bar" style="--h:62%"></div>
+                <div class="bar" style="--h:78%"></div>
+                <div class="bar" style="--h:55%"></div>
+                <div class="bar" style="--h:90%"></div>
+                <div class="bar bar-active" style="--h:100%"></div>
+                <div class="bar" style="--h:70%"></div>
+              </div>
+              <div class="phone-stats-row">
+                <div class="phone-stat"><span class="ps-num green">&#8377;227</span><span class="ps-label">Saved Today</span></div>
+                <div class="phone-stat"><span class="ps-num blue">6.8 kg</span><span class="ps-label">CO2 Offset</span></div>
+                <div class="phone-stat"><span class="ps-num purple">98%</span><span class="ps-label">Efficiency</span></div>
+              </div>
+              <div class="phone-alert">&#128276; System performing optimally</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="section-header" data-animate>
+        <span class="section-tag">Knowledge Hub</span>
+        <h2>Solar <span class="gradient-text">Insights and Updates</span></h2>
+        <p>Stay informed on solar savings, subsidies, and clean energy news from our expert team.</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card glass-card blog-featured" data-animate>
+          <div class="blog-img bi-1"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Government Policy</span>
+            <h3>PM Surya Ghar Scheme 2025: Get up to Rs.78,000 Subsidy on Rooftop Solar</h3>
+            <p>A complete breakdown of India's most generous solar subsidy programme and how to claim it.</p>
+            <div class="blog-meta"><span>By Arjun Mehta</span><span>May 1, 2026</span></div>
+            <a href="#" class="btn btn-ghost blog-btn">Read Article</a>
+          </div>
+        </article>
+        <article class="blog-card glass-card" data-animate>
+          <div class="blog-img bi-2"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Technology</span>
+            <h3>How AI Is Revolutionising Solar Panel Efficiency in 2026</h3>
+            <div class="blog-meta"><span>By Shreya Pillai</span><span>Apr 20, 2026</span></div>
+            <a href="#" class="btn btn-ghost blog-btn">Read Article</a>
+          </div>
+        </article>
+        <article class="blog-card glass-card" data-animate>
+          <div class="blog-img bi-3"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Savings Guide</span>
+            <h3>Solar ROI Calculator: When Does Your System Pay For Itself?</h3>
+            <div class="blog-meta"><span>By Kiran Nair</span><span>Apr 10, 2026</span></div>
+            <a href="#" class="btn btn-ghost blog-btn">Read Article</a>
+          </div>
+        </article>
+        <article class="blog-card glass-card" data-animate>
+          <div class="blog-img bi-4"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Installation</span>
+            <h3>What to Expect on Solar Installation Day: A Step-by-Step Guide</h3>
+            <div class="blog-meta"><span>By Rohan Das</span><span>Apr 5, 2026</span></div>
+            <a href="#" class="btn btn-ghost blog-btn">Read Article</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" id="contact">
+    <div class="cta-glow-left"></div>
+    <div class="cta-glow-right"></div>
+    <div class="container">
+      <div class="cta-header" data-animate>
+        <h2>Start Your Solar Journey <span class="gradient-text">Today</span></h2>
+        <p>Join 12,000+ happy customers. Free consultation, free design, guaranteed savings.</p>
+      </div>
+      <div class="cta-grid">
+        <form class="contact-form glass-card" id="contactForm" data-animate>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="cName" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="cPhone" placeholder="10-digit mobile number" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="cEmail" placeholder="your@email.com" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" id="cCity" placeholder="Your city" required />
+            </div>
+            <div class="form-group">
+              <label>Service Type</label>
+              <select id="cService">
+                <option>Residential (Home)</option>
+                <option>Commercial (Business)</option>
+                <option>Housing Society</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Avg. Monthly Electricity Bill *</label>
+            <select id="cBill" required>
+              <option value="">Select your monthly bill range</option>
+              <option>Below &#8377;1,000</option>
+              <option>&#8377;1,000 &#8211; &#8377;2,500</option>
+              <option>&#8377;2,500 &#8211; &#8377;5,000</option>
+              <option>&#8377;5,000 &#8211; &#8377;10,000</option>
+              <option>Above &#8377;10,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message (Optional)</label>
+            <textarea id="cMsg" rows="3" placeholder="Anything specific you would like us to know?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-neon btn-full btn-lg" id="submitBtn">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Book Free Consultation
+          </button>
+          <div class="form-success" id="formSuccess" style="display:none;">
+            <span>&#10003;</span> We will contact you within 2 hours!
+          </div>
+        </form>
+        <div class="cta-contacts" data-animate>
+          <div class="contact-card glass-card">
+            <div class="contact-method">
+              <div class="contact-icon">&#128222;</div>
+              <div><span>Call Us Now</span><a href="tel:+919830003000">+91 98 3000 3000</a></div>
+            </div>
+          </div>
+          <div class="contact-card glass-card whatsapp-card">
+            <div class="contact-method">
+              <div class="contact-icon">&#128172;</div>
+              <div><span>WhatsApp</span><a href="https://wa.me/919830003000">Chat with Solar Expert</a></div>
+            </div>
+          </div>
+          <div class="contact-card glass-card">
+            <div class="contact-method">
+              <div class="contact-icon">&#128231;</div>
+              <div><span>Email Us</span><a href="mailto:hello@clansmachina.com">hello@clansmachina.com</a></div>
+            </div>
+          </div>
+          <div class="office-info glass-card">
+            <h4>Head Office</h4>
+            <p>1101-B, Solar Tower, Andheri West,<br/>Mumbai, Maharashtra - 400058</p>
+            <div class="city-tags">
+              <span>Mumbai</span><span>Delhi</span><span>Bangalore</span>
+              <span>Pune</span><span>Chennai</span><span>+24 more</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="image/clans_logo.png" alt="Clans Machina" class="logo-img logo-img--footer" />
+          </a>
+          <p>Intelligent solar systems powered by AI. Trusted by 12,000+ homes across India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">IN</a>
+            <a href="#" aria-label="LinkedIn">LI</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="Twitter">TW</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="#">Residential Solar</a></li>
+            <li><a href="#">Commercial Solar</a></li>
+            <li><a href="#">Housing Societies</a></li>
+            <li><a href="#">On-Grid Systems</a></li>
+            <li><a href="#">Off-Grid Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">ClansZero Plan</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">ClansMonitor App</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#">Solar Calculator</a></li>
+            <li><a href="#">Blog and Insights</a></li>
+            <li><a href="#">Government Subsidies</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Support Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 Clans Machina Energy Pvt. Ltd. All rights reserved. Proudly Made in India.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cancellation Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT -->
+  <div class="chatbot-widget" id="chatbot">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open solar consultation chat">
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="chatbot-pulse"></span>
+    </button>
+    <div class="chatbot-panel glass-card" id="chatbotPanel" style="display:none;">
+      <div class="chat-header">
+        <div class="chat-avatar-icon">&#9889;</div>
+        <div><strong>SolarBot AI</strong><span class="chat-status">&#9679; Online</span></div>
+        <button class="chat-close" id="chatClose">&#215;</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot-msg"><span>&#128075; Hi! I am SolarBot. How can I help you go solar today?</span></div>
+      </div>
+      <div class="chat-quick-replies">
+        <button class="quick-reply" data-reply="Calculate my savings">&#128176; Calculate Savings</button>
+        <button class="quick-reply" data-reply="I want a free quote">&#128203; Free Quote</button>
+        <button class="quick-reply" data-reply="Tell me about subsidies">&#127963; Subsidies</button>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Ask about solar..." />
+        <button id="chatSend">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEME PICKER PANEL -->
+  <div class="theme-overlay" id="themeOverlay"></div>
+  <aside class="theme-panel" id="themePanel" aria-label="Theme picker">
+    <div class="theme-panel-header">
+      <h3>&#127912; Choose Theme</h3>
+      <button class="theme-panel-close" id="themePanelClose" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="theme-group">
+      <p class="theme-group-label">&#9788; Light Themes</p>
+      <div class="theme-swatches">
+        <button class="theme-swatch" data-theme="solar-white">
+          <span class="swatch-preview" style="--sw-bg:#fffbf0; --sw-a:#d97706; --sw-b:#dc2626;"></span>
+          <span class="swatch-label">Solar White</span>
+        </button>
+        <button class="theme-swatch" data-theme="sky-light">
+          <span class="swatch-preview" style="--sw-bg:#eef3fc; --sw-a:#1d4ed8; --sw-b:#0891b2;"></span>
+          <span class="swatch-label">Sky Light</span>
+        </button>
+        <button class="theme-swatch" data-theme="mint-fresh">
+          <span class="swatch-preview" style="--sw-bg:#f0fdf8; --sw-a:#059669; --sw-b:#0284c7;"></span>
+          <span class="swatch-label">Mint Fresh</span>
+        </button>
+        <button class="theme-swatch" data-theme="sunrise-warm">
+          <span class="swatch-preview" style="--sw-bg:#fdf6ec; --sw-a:#ea580c; --sw-b:#ca8a04;"></span>
+          <span class="swatch-label">Sunrise Warm</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="theme-group">
+      <p class="theme-group-label">&#9670; Mid Themes</p>
+      <div class="theme-swatches">
+        <button class="theme-swatch" data-theme="slate-teal">
+          <span class="swatch-preview" style="--sw-bg:#182f3d; --sw-a:#14b8a6; --sw-b:#38bdf8;"></span>
+          <span class="swatch-label">Slate Teal</span>
+        </button>
+        <button class="theme-swatch" data-theme="ocean-depth">
+          <span class="swatch-preview" style="--sw-bg:#0c1e30; --sw-a:#06b6d4; --sw-b:#818cf8;"></span>
+          <span class="swatch-label">Ocean Depth</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="theme-group">
+      <p class="theme-group-label">&#9679; Dark Themes</p>
+      <div class="theme-swatches">
+        <button class="theme-swatch active" data-theme="industrial">
+          <span class="swatch-preview" style="--sw-bg:#111518; --sw-a:#3ecf8e; --sw-b:#4ea8de;"></span>
+          <span class="swatch-label">Industrial</span>
+        </button>
+        <button class="theme-swatch" data-theme="midnight-navy">
+          <span class="swatch-preview" style="--sw-bg:#060c18; --sw-a:#3b82f6; --sw-b:#a78bfa;"></span>
+          <span class="swatch-label">Midnight</span>
+        </button>
+        <button class="theme-swatch" data-theme="obsidian-purple">
+          <span class="swatch-preview" style="--sw-bg:#0e0b1a; --sw-a:#a855f7; --sw-b:#e8c468;"></span>
+          <span class="swatch-label">Obsidian</span>
+        </button>
+        <button class="theme-swatch" data-theme="carbon-ember">
+          <span class="swatch-preview" style="--sw-bg:#13100e; --sw-a:#f97316; --sw-b:#fbbf24;"></span>
+          <span class="swatch-label">Carbon Ember</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
