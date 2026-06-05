@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="solar-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clans Machina Solar Savings Calculator" />
+  <title>Solar Savings Calculator | Clans Machina</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><img src="image/clans_logo.png" alt="Clans Machina" class="logo-img" width="113" height="38" decoding="async" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Services</button>
+          <ul class="nav-dropdown-menu">
+            <li class="nav-dropdown-col nav-dropdown-col--services">
+              <a href="commercial.html" class="nav-service-link-min">Commercial</a>
+              <a href="society.html" class="nav-service-link-min">Society</a>
+            </li>
+            <li class="nav-dropdown-col nav-dropdown-col--quick">
+              <span class="nav-dropdown-heading">Quick Links</span>
+              <a href="residential.html" class="nav-quick-link">Residential Solar</a>
+              <a href="calculator.html" class="nav-quick-link">Savings Calculator</a>
+              <a href="faq.html" class="nav-quick-link">Subsidy and FAQ</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="btn btn-ghost">Contact</a>
+        <a href="index.html#projects" class="btn btn-neon">See Case Studies</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- CALCULATOR HERO -->
+  <section class="sc-hero">
+    <div class="sc-hero-glow"></div>
+    <div class="container">
+      <div class="sc-hero-inner" data-animate>
+        <span class="section-tag">Interactive Solar Tool</span>
+        <h1>Solar Savings &amp; <span class="gradient-text">Loan EMI Calculator</span></h1>
+        <p>Estimate your system size, generation, subsidy and 25-year savings &mdash; then fine-tune your solar loan EMI with live sliders. Get a clear, transparent picture in under a minute.</p>
+        <div class="sc-hero-chips">
+          <span class="sc-chip"><span class="sc-chip-dot"></span>PM Surya Ghar subsidy included</span>
+          <span class="sc-chip"><span class="sc-chip-dot"></span>Net-metering savings model</span>
+          <span class="sc-chip"><span class="sc-chip-dot"></span>No sign-up needed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR TOOL -->
+  <section class="sc-tool" id="calculator">
+    <div class="container">
+
+      <!-- STEP 1 - SAVINGS ESTIMATOR -->
+      <div class="sc-card glass-card" data-animate>
+        <div class="sc-card-head">
+          <span class="sc-step">Step 1</span>
+          <div>
+            <h2>Your Solar <span class="gradient-text">Savings Estimate</span></h2>
+            <p>Tell us about your electricity usage to size the right system.</p>
+          </div>
+        </div>
+
+        <div class="sc-estimator">
+          <form class="sc-form" id="estForm">
+            <div class="sc-field">
+              <label>Who is this for?</label>
+              <div class="sc-seg" id="estSeg" role="tablist" aria-label="Consumer type">
+                <button type="button" class="sc-seg-btn active" data-type="residential" aria-selected="true">Residential</button>
+                <button type="button" class="sc-seg-btn" data-type="commercial" aria-selected="false">Commercial</button>
+                <button type="button" class="sc-seg-btn" data-type="industrial" aria-selected="false">Industrial</button>
+              </div>
+            </div>
+
+            <div class="sc-field">
+              <label for="estBill">Average monthly electricity bill</label>
+              <div class="input-wrap">
+                <span class="input-prefix">&#8377;</span>
+                <input type="number" id="estBill" placeholder="e.g. 6500" min="0" inputmode="numeric" required />
+              </div>
+            </div>
+
+            <div class="sc-field">
+              <label for="estLocation">Your location</label>
+              <select id="estLocation">
+                <option data-sun="4.1" data-tariff="9.5">Mumbai / Pune</option>
+                <option data-sun="4.6" data-tariff="8.0">Delhi / NCR</option>
+                <option data-sun="5.0" data-tariff="7.5">Rajasthan / Gujarat</option>
+                <option data-sun="4.5" data-tariff="8.5">Bengaluru / Chennai</option>
+                <option data-sun="4.7" data-tariff="8.0">Hyderabad / Telangana</option>
+                <option data-sun="4.0" data-tariff="7.8">Kolkata / East India</option>
+              </select>
+            </div>
+
+            <div class="sc-field">
+              <div class="sc-slider-head">
+                <label for="estRoof">Available roof area</label>
+                <span class="sc-slider-val" id="estRoofLabel">500 sq ft</span>
+              </div>
+              <input type="range" id="estRoof" min="100" max="3000" value="500" step="50" class="sc-range" />
+              <div class="sc-range-scale"><span>100</span><span>3000 sq ft</span></div>
+            </div>
+
+            <button type="submit" class="btn btn-neon btn-full">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Calculate My Savings
+            </button>
+            <p class="sc-note">Indicative pre-feasibility estimate using average city irradiation, standard tariff bands and net-metering benefit. Final numbers are confirmed after a site survey.</p>
+          </form>
+
+          <div class="sc-results" id="scResults">
+            <div class="sc-placeholder" id="scPlaceholder">
+              <div class="sc-placeholder-icon">
+                <svg width="46" height="46" fill="none" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1M4.22 4.22l.7.7m12.16 12.16.7.7M1 12h1m20 0h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/></svg>
+              </div>
+              <p>Enter your details to see your personalised solar report.</p>
+            </div>
+
+            <div class="sc-report" id="scReport" hidden>
+              <div class="sc-hero-result">
+                <span class="sc-hero-label">Estimated 25-year savings</span>
+                <span class="sc-hero-value" id="rSavings25">&#8377;0</span>
+                <span class="sc-hero-sub"><strong id="rSavingsAnnual">&#8377;0</strong> saved every year</span>
+              </div>
+
+              <div class="sc-bill-compare">
+                <div class="sc-bill-row">
+                  <span>Now</span>
+                  <div class="sc-bill-bar"><div class="sc-bill-fill sc-bill-now" id="barNow"></div></div>
+                  <strong id="rBillNow">&#8377;0</strong>
+                </div>
+                <div class="sc-bill-row">
+                  <span>With solar</span>
+                  <div class="sc-bill-bar"><div class="sc-bill-fill sc-bill-solar" id="barSolar"></div></div>
+                  <strong id="rBillSolar">&#8377;0</strong>
+                </div>
+                <p class="sc-bill-cut"><span id="rReduction">0%</span> lower monthly bill</p>
+              </div>
+
+              <div class="sc-stat-grid">
+                <div class="sc-stat sc-stat-green"><span class="sc-stat-label">System Size</span><span class="sc-stat-value" id="rSystem">0 kW</span></div>
+                <div class="sc-stat sc-stat-blue"><span class="sc-stat-label">Monthly Generation</span><span class="sc-stat-value" id="rGen">0</span><span class="sc-stat-unit">units / month</span></div>
+                <div class="sc-stat sc-stat-purple"><span class="sc-stat-label">Panels Required</span><span class="sc-stat-value" id="rPanels">0</span></div>
+                <div class="sc-stat sc-stat-gold"><span class="sc-stat-label">Payback Period</span><span class="sc-stat-value" id="rPayback">0 yrs</span></div>
+                <div class="sc-stat sc-stat-cyan"><span class="sc-stat-label">CO&#8322; Reduced / yr</span><span class="sc-stat-value" id="rCo2">0 T</span></div>
+                <div class="sc-stat sc-stat-orange"><span class="sc-stat-label">Subsidy Estimate</span><span class="sc-stat-value" id="rSubsidy">&#8377;0</span></div>
+              </div>
+
+              <div class="sc-cost-line">
+                <div><span>Project cost</span><strong id="rGross">&#8377;0</strong></div>
+                <div class="sc-cost-minus"><span>Subsidy</span><strong id="rSubsidy2">&#8722; &#8377;0</strong></div>
+                <div class="sc-cost-net"><span>Net cost after subsidy</span><strong id="rNet">&#8377;0</strong></div>
+              </div>
+
+              <p class="sc-jump-hint">&#128071; Now plan your EMI for this system below</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 - EMI CALCULATOR -->
+      <div class="sc-card glass-card sc-card-emi" id="emiPanel" data-animate>
+        <div class="sc-card-head">
+          <span class="sc-step sc-step-blue">Step 2</span>
+          <div>
+            <h2>Solar Loan <span class="gradient-text-blue">EMI Calculator</span></h2>
+            <p>Adjust loan amount, down payment, tenure and interest to plan your monthly outgo.</p>
+          </div>
+        </div>
+
+        <div class="sc-emi-grid">
+          <div class="sc-emi-controls">
+            <div class="sc-asset-note">Financing a system worth <strong id="emiAsset">&#8377;3,00,000</strong></div>
+
+            <div class="sc-field">
+              <div class="sc-slider-head">
+                <label for="emiLoan">Loan amount</label>
+                <span class="sc-slider-val" id="emiLoanVal">&#8377;2,40,000</span>
+              </div>
+              <input type="range" id="emiLoan" min="0" max="300000" value="240000" step="5000" class="sc-range sc-range-blue" />
+            </div>
+
+            <div class="sc-field">
+              <div class="sc-slider-head">
+                <label for="emiDp">Down payment</label>
+                <span class="sc-slider-val" id="emiDpVal">20% &middot; &#8377;60,000</span>
+              </div>
+              <input type="range" id="emiDp" min="0" max="90" value="20" step="1" class="sc-range sc-range-blue" />
+            </div>
+
+            <div class="sc-field">
+              <div class="sc-slider-head">
+                <label for="emiTenure">Loan tenure</label>
+                <span class="sc-slider-val" id="emiTenureVal">5 years</span>
+              </div>
+              <input type="range" id="emiTenure" min="1" max="7" value="5" step="0.5" class="sc-range sc-range-blue" />
+            </div>
+
+            <div class="sc-field">
+              <div class="sc-slider-head">
+                <label for="emiInterest">Interest rate</label>
+                <span class="sc-slider-val" id="emiInterestVal">9.5% p.a.</span>
+              </div>
+              <input type="range" id="emiInterest" min="7" max="15" value="9.5" step="0.1" class="sc-range sc-range-blue" />
+            </div>
+          </div>
+
+          <div class="sc-emi-output">
+            <div class="sc-emi-hero">
+              <span class="sc-emi-hero-label">Monthly EMI</span>
+              <span class="sc-emi-hero-value" id="emiMonthly">&#8377;0</span>
+              <span class="sc-emi-hero-sub">for <span id="emiMonths">60</span> months</span>
+            </div>
+
+            <div class="sc-emi-split">
+              <div class="sc-emi-splitbar">
+                <div class="sc-emi-principal" id="splitPrincipal"></div>
+                <div class="sc-emi-interest" id="splitInterest"></div>
+              </div>
+              <div class="sc-emi-legend">
+                <span><i class="dot-principal"></i>Principal <strong id="emiPrincipal">&#8377;0</strong></span>
+                <span><i class="dot-interest"></i>Interest <strong id="emiInterest2">&#8377;0</strong></span>
+              </div>
+            </div>
+
+            <div class="sc-emi-rows">
+              <div class="sc-emi-row"><span>Total interest payable</span><strong id="emiTotalInterest">&#8377;0</strong></div>
+              <div class="sc-emi-row"><span>Total amount payable</span><strong id="emiTotal">&#8377;0</strong></div>
+            </div>
+
+            <div class="sc-cashflow" id="emiCashflow" hidden>
+              <span class="sc-cashflow-label">After solar savings, your real monthly outgo is</span>
+              <span class="sc-cashflow-value" id="emiNet">&#8377;0</span>
+              <span class="sc-cashflow-sub" id="emiNetNote"></span>
+            </div>
+
+            <a href="index.html#contact" class="btn btn-neon btn-full">Get Free Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="sc-disclaimer">EMI uses a standard reducing-balance formula. Interest rates, subsidy and final pricing are subject to lender approval and a confirmed site survey.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="image/clans_logo.png" alt="Clans Machina" class="logo-img logo-img--footer" width="95" height="32" loading="lazy" decoding="async" fetchpriority="low" />
+          </a>
+          <p>Intelligent solar systems powered by AI. Trusted by 12,000+ homes across India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">IN</a>
+            <a href="#" aria-label="LinkedIn">LI</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="Twitter">TW</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="residential.html">Residential Solar</a></li>
+            <li><a href="commercial.html">Commercial Solar</a></li>
+            <li><a href="society.html">Housing Societies</a></li>
+            <li><a href="index.html#process">On-Grid Systems</a></li>
+            <li><a href="index.html#process">Off-Grid Systems</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="index.html#hero">About Us</a></li>
+            <li><a href="index.html#features">ClansZero Plan</a></li>
+            <li><a href="index.html#features">Technology</a></li>
+            <li><a href="index.html#app">ClansMonitor App</a></li>
+            <li><a href="index.html#contact">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="calculator.html">Solar Calculator</a></li>
+            <li><a href="blog.html">Blog and Insights</a></li>
+            <li><a href="faq.html">Government Subsidies</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#contact">Support Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 Clans Machina Energy Pvt. Ltd. All rights reserved. Proudly Made in India.</p>
+        <div class="footer-legal">
+          <a href="footer.html">Footer</a>
+          <a href="footer.html#privacy">Privacy Policy</a>
+          <a href="footer.html#terms">Terms of Service</a>
+          <a href="footer.html#cancellation">Cancellation Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/shared-footer.js" defer></script>
+  <script src="js/subpage.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+</body>
+</html>
