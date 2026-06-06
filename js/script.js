@@ -707,56 +707,6 @@
     });
   });
 
-  /* ---- THEME PICKER ---- */
-  const themePickerBtn = document.getElementById('themePickerBtn');
-  const themePanel     = document.getElementById('themePanel');
-  const themeOverlay   = document.getElementById('themeOverlay');
-  const themePanelClose = document.getElementById('themePanelClose');
-  const THEME_KEY = 'cm_theme';
-
-  function applyTheme(name) {
-    const html = document.documentElement;
-    if (name === 'industrial' || !name) {
-      html.removeAttribute('data-theme');
-    } else {
-      html.setAttribute('data-theme', name);
-    }
-    // Mark active swatch
-    document.querySelectorAll('.theme-swatch').forEach(s => {
-      const isActive = (s.dataset.theme === name) || (!name && s.dataset.theme === 'industrial');
-      s.classList.toggle('active', isActive);
-    });
-    try { localStorage.setItem(THEME_KEY, name); } catch(e) {}
-  }
-
-  function openThemePanel() {
-    themePanel.classList.add('open');
-    themeOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeThemePanel() {
-    themePanel.classList.remove('open');
-    themeOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  if (themePickerBtn) themePickerBtn.addEventListener('click', openThemePanel);
-  if (themePanelClose) themePanelClose.addEventListener('click', closeThemePanel);
-  if (themeOverlay) themeOverlay.addEventListener('click', closeThemePanel);
-
-  document.querySelectorAll('.theme-swatch').forEach(btn => {
-    btn.addEventListener('click', () => {
-      applyTheme(btn.dataset.theme);
-      setTimeout(closeThemePanel, 220);
-    });
-  });
-
-  // Restore saved theme on load. Default is Solar Premium (also hardcoded on
-  // <html> to avoid a flash); a saved choice overrides it.
-  try {
-    const saved = localStorage.getItem(THEME_KEY);
-    applyTheme(saved || 'solar-premium');
-  } catch(e) {}
+  /* Theme picker is handled by js/shared-theme.js (shared across all pages). */
 
 })();

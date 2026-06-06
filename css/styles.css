@@ -1037,7 +1037,7 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
   background: rgba(0,255,136,0.05);
   box-shadow: 0 0 0 3px rgba(0,255,136,0.08);
 }
-.form-group select option { background: #0d1f35; color: var(--text-primary); }
+.form-group select option { background: var(--bg-secondary); color: var(--text-primary); }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: var(--text-muted); }
 .input-wrap { position: relative; }
@@ -1155,7 +1155,7 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
 .sc-field select:focus {
   border-color: var(--green); background: rgba(62,207,142,0.05); box-shadow: 0 0 0 3px rgba(62,207,142,0.1);
 }
-.sc-field select option { background: #0d1f35; color: var(--text-primary); }
+.sc-field select option { background: var(--bg-secondary); color: var(--text-primary); }
 
 /* segmented control */
 .sc-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 5px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 12px; }
@@ -1311,8 +1311,14 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
    CALCULATOR — CHOOSE PROPERTY SCREEN + AEREM-STYLE TOOL
    ============================================================ */
 
-/* --- choose property cards --- */
+/* --- choose property screen --- */
+.sc-choose-head { text-align: center; max-width: 720px; margin: 0 auto 38px; }
+.sc-choose-head h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 12px; }
+.sc-choose-head p { color: var(--text-secondary); font-size: 1.02rem; }
 .sc-choose-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 8px; }
+/* allow the cards/back to be <button> elements */
+button.sc-choose-card { font-family: inherit; width: 100%; text-align: left; }
+button.sc-back { background: none; border: none; cursor: pointer; font-family: inherit; }
 .sc-choose-card {
   position: relative; display: flex; flex-direction: column; gap: 14px;
   padding: 32px 26px; text-align: left; cursor: pointer;
@@ -2269,10 +2275,10 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
    FOOTER
    ============================================================ */
 .footer {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid var(--border);
   padding: 60px 0 24px;
-  background: #0d1013;
-  color: #e8edf5;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
 }
 .footer-top {
   display: grid;
@@ -2281,7 +2287,7 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
   margin-bottom: 48px;
 }
 .footer-brand .logo { margin-bottom: 16px; font-size: 1.2rem; }
-.footer-brand p { font-size: 0.85rem; color: rgba(232,237,245,0.72); margin-bottom: 20px; }
+.footer-brand p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
 .social-links { display: flex; gap: 10px; }
 .social-links a {
   width: 36px;
@@ -2294,13 +2300,13 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
   justify-content: center;
   font-size: 0.72rem;
   font-weight: 700;
-  color: rgba(232,237,245,0.72);
+  color: var(--text-secondary);
   transition: all 0.2s;
 }
 .social-links a:hover { background: var(--green-dim); border-color: var(--border-bright); color: var(--green); }
-.footer-links-group h5 { font-size: 0.85rem; font-weight: 700; color: #f7f9fc; margin-bottom: 16px; }
+.footer-links-group h5 { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 16px; }
 .footer-links-group ul { display: flex; flex-direction: column; gap: 10px; }
-.footer-links-group a { font-size: 0.85rem; color: rgba(232,237,245,0.72); transition: color 0.2s; }
+.footer-links-group a { font-size: 0.85rem; color: var(--text-secondary); transition: color 0.2s; }
 .footer-links-group a:hover { color: var(--green); }
 .footer-bottom {
   border-top: 1px solid var(--border);
@@ -2311,9 +2317,9 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-bottom p { font-size: 0.8rem; color: rgba(232,237,245,0.7); }
+.footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
 .footer-legal { display: flex; gap: 20px; }
-.footer-legal a { font-size: 0.8rem; color: rgba(232,237,245,0.72); transition: color 0.2s; }
+.footer-legal a { font-size: 0.8rem; color: var(--text-secondary); transition: color 0.2s; }
 .footer-legal a:hover { color: var(--green); }
 
 /* ============================================================

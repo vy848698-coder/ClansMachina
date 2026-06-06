@@ -135,19 +135,7 @@
     }
   }
 
-  /* ---- RESTORE SAVED THEME ---- */
-  /* Pages default to data-theme="solar-premium" in HTML. Honour a saved choice:
-     'industrial' is the bare :root (no attribute); anything else is set directly. */
-  try {
-    const savedTheme = localStorage.getItem('cm_theme');
-    if (savedTheme === 'industrial') {
-      document.documentElement.removeAttribute('data-theme');
-    } else if (savedTheme) {
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    }
-  } catch (e) {
-    // Ignore storage errors in restricted contexts.
-  }
+  /* Theme restore is handled by js/shared-theme.js (shared across all pages). */
 
   /* ---- NAVBAR SCROLL ---- */
   const navbar = document.getElementById('navbar');

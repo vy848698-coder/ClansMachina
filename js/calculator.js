@@ -40,16 +40,69 @@
   var estForm = $('estForm');
   if (!estForm) return; // not on the calculator page
 
-  /* Consumer type comes from the choose-property page via ?type= */
+  /* ---- TWO INTERNAL SCREENS: choose property -> calculator ---- */
   var TYPE_LABEL = { residential: 'Residential', commercial: 'Commercial', industrial: 'Industrial' };
   var consumerType = 'residential';
-  try {
-    var qp = new URLSearchParams(window.location.search).get('type');
-    if (qp && TYPE_LABEL[qp]) consumerType = qp;
-  } catch (e) { /* URLSearchParams unsupported — keep default */ }
-  setText('scTypeTag', TYPE_LABEL[consumerType]);
-  var illus = $('scIllus');
-  if (illus) illus.setAttribute('data-type', consumerType);
+  var scChoose = $('scChoose');
+  var scTool = $('scTool');
+
+  function applyType(type) {
+    if (!TYPE_LABEL[type]) type = 'residential';
+    consumerType = type;
+    setText('scTypeTag', TYPE_LABEL[type]);
+    var il = $('scIllus');
+    if (il) il.setAttribute('data-type', type);
+  }
+
+  function setUrlType(type) {
+    try {
+      var url = type ? (window.location.pathname + '?type=' + type) : window.location.pathname;
+      window.history.replaceState(null, '', url);
+    } catch (e) { /* history API unavailable */ }
+  }
+
+  /* Reveal scroll-animated children: they start at opacity:0 and are normally
+     revealed by an IntersectionObserver, but elements inside a hidden screen
+     are never observed — so reveal them when we show the screen. */
+  function reveal(container) {
+    if (!container) return;
+    container.querySelectorAll('[data-animate]').forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  function showTool(type) {
+    applyType(type);
+    if (scChoose) scChoose.hidden = true;
+    if (scTool) scTool.hidden = false;
+    reveal(scTool);
+    setUrlType(type);
+    window.scrollTo(0, 0);
+  }
+
+  function showChoose() {
+    if (scTool) scTool.hidden = true;
+    if (scChoose) scChoose.hidden = false;
+    reveal(scChoose);
+    setUrlType(null);
+    window.scrollTo(0, 0);
+  }
+
+  // Property cards -> open the calculator for that type
+  document.querySelectorAll('[data-choose-type]').forEach(function (card) {
+    card.addEventListener('click', function () { showTool(card.getAttribute('data-choose-type')); });
+  });
+  // Back link -> return to the choose screen
+  var scBack = $('scBack');
+  if (scBack) scBack.addEventListener('click', showChoose);
+
+  // Initial screen: deep-link via ?type= jumps straight to the calculator
+  var initialType = null;
+  try { initialType = new URLSearchParams(window.location.search).get('type'); } catch (e) {}
+  if (scChoose && scTool) {
+    if (initialType && TYPE_LABEL[initialType]) showTool(initialType);
+    else showChoose();
+  } else {
+    applyType(initialType && TYPE_LABEL[initialType] ? initialType : 'residential');
+  }
 
   var roof = $('estRoof');
   var roofUnit = $('estRoofUnit');

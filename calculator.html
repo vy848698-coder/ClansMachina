@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Clans Machina Solar Savings Calculator" />
   <title>Solar Savings Calculator | Clans Machina</title>
+  <script>(function(){try{var t=localStorage.getItem('cm_theme'),h=document.documentElement;if(t){if(t==='industrial'){h.removeAttribute('data-theme');}else{h.setAttribute('data-theme',t);}}}catch(e){}})();</script>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +26,11 @@
             <li class="nav-dropdown-col nav-dropdown-col--quick">
               <span class="nav-dropdown-heading">Quick Links</span>
               <a href="residential.html" class="nav-quick-link">Residential Solar</a>
-              <a href="choose.html" class="nav-quick-link">Savings Calculator</a>
               <a href="faq.html" class="nav-quick-link">Subsidy and FAQ</a>
             </li>
           </ul>
         </li>
-        <li><a href="choose.html">Calculator</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>
       </ul>
@@ -63,12 +63,71 @@
   <section class="sc-tool" id="calculator">
     <div class="container">
 
+      <!-- SCREEN 1: CHOOSE PROPERTY -->
+      <div id="scChoose">
+        <div class="sc-choose-head" data-animate>
+          <h2>Where do you want to <span class="gradient-text">go solar?</span></h2>
+          <p>Pick the type of property you want to power. We'll size the right system and show your savings, generation, subsidy and monthly EMI &mdash; in under a minute.</p>
+        </div>
+        <div class="sc-choose-grid">
+
+          <button type="button" class="sc-choose-card glass-card" data-choose-type="residential" data-animate>
+            <span class="sc-choose-icon">
+              <svg width="30" height="30" fill="none" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 19v-5h4v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Residential</h3>
+            <p>Homes, villas and independent houses. Cut your monthly bill and claim the PM Surya Ghar subsidy.</p>
+            <div class="sc-choose-meta">
+              <span class="sc-choose-tag">Govt. subsidy</span>
+              <span class="sc-choose-tag">1&ndash;10 kW</span>
+            </div>
+            <span class="sc-choose-go">Start estimate
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+
+          <button type="button" class="sc-choose-card glass-card" data-choose-type="commercial" data-animate>
+            <span class="sc-choose-icon">
+              <svg width="30" height="30" fill="none" viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 8h5v13h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7h2M7 11h2M7 15h2M11 7h1M11 11h1M11 15h1M18 12h.01M18 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Commercial</h3>
+            <p>Offices, shops, schools and hospitals. Lower operating costs with accelerated depreciation benefits.</p>
+            <div class="sc-choose-meta">
+              <span class="sc-choose-tag">Tax benefits</span>
+              <span class="sc-choose-tag">10&ndash;100 kW</span>
+            </div>
+            <span class="sc-choose-go">Start estimate
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+
+          <button type="button" class="sc-choose-card glass-card" data-choose-type="industrial" data-animate>
+            <span class="sc-choose-icon">
+              <svg width="30" height="30" fill="none" viewBox="0 0 24 24"><path d="M3 21V10l6 4V10l6 4V7l6 3v11H3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 21v-4M12 21v-4M17 21v-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Industrial</h3>
+            <p>Factories, warehouses and large plants. Maximise self-consumption and slash your energy bill at scale.</p>
+            <div class="sc-choose-meta">
+              <span class="sc-choose-tag">Highest savings</span>
+              <span class="sc-choose-tag">100 kW+</span>
+            </div>
+            <span class="sc-choose-go">Start estimate
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- SCREEN 2: CALCULATOR -->
+      <div id="scTool" hidden>
+
       <!-- ESTIMATOR — AEREM-STYLE -->
       <div class="sc-card glass-card" data-animate>
-        <a href="choose.html" class="sc-back">
+        <button type="button" class="sc-back" id="scBack">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Back to choose property
-        </a>
+        </button>
         <div class="sc-card-head">
           <div>
             <h2>Estimated solar <span class="gradient-text">system details</span><span class="sc-tool-type-tag" id="scTypeTag">Residential</span></h2>
@@ -290,6 +349,7 @@
       </div>
 
       <p class="sc-disclaimer">EMI uses a standard reducing-balance formula. Interest rates, subsidy and final pricing are subject to lender approval and a confirmed site survey.</p>
+      </div><!-- /#scTool -->
     </div>
   </section>
 
@@ -351,6 +411,7 @@
     </div>
   </footer>
   <script src="js/shared-footer.js" defer></script>
+  <script src="js/shared-theme.js" defer></script>
   <script src="js/subpage.js" defer></script>
   <script src="js/calculator.js" defer></script>
 </body>
