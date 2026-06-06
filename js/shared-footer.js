@@ -6,7 +6,7 @@
     '      <a href="index.html" class="logo">',
     '        <img src="image/clans_logo.png" alt="Clans Machina" class="logo-img logo-img--footer" width="95" height="32" loading="lazy" decoding="async" fetchpriority="low" />',
     '      </a>',
-    '      <p>Intelligent solar systems powered by AI. Trusted by 12,000+ homes across India.</p>',
+    '      <p>Rooftop solar done right &mdash; transparent savings and dependable service. Trusted by 12,000+ homes across India.</p>',
     '      <div class="social-links">',
     '        <a href="#" aria-label="Instagram">IN</a>',
     '        <a href="#" aria-label="LinkedIn">LI</a>',

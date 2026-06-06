@@ -328,10 +328,10 @@
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        r: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.5 + 0.2
+        vx: (Math.random() - 0.5) * 0.12,
+        vy: -(Math.random() * 0.25 + 0.05),
+        r: Math.random() * 1.8 + 0.6,
+        alpha: Math.random() * 0.4 + 0.15
       });
     }
   }
@@ -339,38 +339,21 @@
   function drawParticles() {
     if (!canvas || !ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Background gradient
+    // Warm sunlight glow from above
     const grad = ctx.createRadialGradient(
-      canvas.width / 2, canvas.height / 2, 0,
-      canvas.width / 2, canvas.height / 2, canvas.width * 0.7
+      canvas.width / 2, canvas.height * 0.15, 0,
+      canvas.width / 2, canvas.height * 0.15, canvas.width * 0.8
     );
-    grad.addColorStop(0, 'rgba(78,168,222,0.06)');
-    grad.addColorStop(1, 'rgba(17,21,24,0)');
+    grad.addColorStop(0, 'rgba(245,178,52,0.07)');
+    grad.addColorStop(1, 'rgba(22,19,13,0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw connecting lines
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 130) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(62,207,142,${0.14 * (1 - dist / 130)})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    // Draw nodes
+    // Draw drifting sun motes (no connecting lines — soft, warm, ambient)
     particles.forEach(p => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${p.alpha * 0.7})`;
+      ctx.fillStyle = `rgba(245,200,120,${p.alpha})`;
       ctx.fill();
     });
   }
@@ -380,8 +363,13 @@
     particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      // Gently wrap motes that drift off the top back to the bottom
+      if (p.y < -5) {
+        p.y = canvas.height + 5;
+        p.x = Math.random() * canvas.width;
+      }
+      if (p.x < -5) p.x = canvas.width + 5;
+      if (p.x > canvas.width + 5) p.x = -5;
     });
   }
 
@@ -656,7 +644,7 @@
       return 'We offer a 25-year panel performance warranty, 10-year inverter warranty, and our ClansZero savings guarantee - India\'s first!';
     }
     if (m.includes('hi') || m.includes('hello') || m.includes('hey')) {
-      return 'Hello! I am SolarBot. I can help with solar savings, pricing, subsidies and more. What would you like to know?';
+      return 'Hello! I am your Solar Helper. I can help with solar savings, pricing, subsidies and more. What would you like to know?';
     }
     return 'Great question! Our solar experts can give you a detailed answer. Book a free consultation and we will call you within 2 hours.';
   }
@@ -764,11 +752,11 @@
     });
   });
 
-  // Restore saved theme on load. Default is Solar White (also hardcoded on
+  // Restore saved theme on load. Default is Solar Premium (also hardcoded on
   // <html> to avoid a flash); a saved choice overrides it.
   try {
     const saved = localStorage.getItem(THEME_KEY);
-    applyTheme(saved || 'solar-white');
+    applyTheme(saved || 'solar-premium');
   } catch(e) {}
 
 })();

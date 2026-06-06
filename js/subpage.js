@@ -136,7 +136,7 @@
   }
 
   /* ---- RESTORE SAVED THEME ---- */
-  /* Pages default to data-theme="solar-white" in HTML. Honour a saved choice:
+  /* Pages default to data-theme="solar-premium" in HTML. Honour a saved choice:
      'industrial' is the bare :root (no attribute); anything else is set directly. */
   try {
     const savedTheme = localStorage.getItem('cm_theme');

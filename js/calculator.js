@@ -32,6 +32,7 @@
   var hasEstimate = false;
 
   var $ = function (id) { return document.getElementById(id); };
+  function setText(id, val) { var e = $(id); if (e) e.textContent = val; }
 
   /* ============================================================
      STEP 1 - SAVINGS ESTIMATOR
@@ -39,23 +40,19 @@
   var estForm = $('estForm');
   if (!estForm) return; // not on the calculator page
 
+  /* Consumer type comes from the choose-property page via ?type= */
+  var TYPE_LABEL = { residential: 'Residential', commercial: 'Commercial', industrial: 'Industrial' };
   var consumerType = 'residential';
-  var seg = $('estSeg');
-  if (seg) {
-    seg.addEventListener('click', function (e) {
-      var btn = e.target.closest('.sc-seg-btn');
-      if (!btn) return;
-      consumerType = btn.getAttribute('data-type');
-      seg.querySelectorAll('.sc-seg-btn').forEach(function (b) {
-        var on = b === btn;
-        b.classList.toggle('active', on);
-        b.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-    });
-  }
+  try {
+    var qp = new URLSearchParams(window.location.search).get('type');
+    if (qp && TYPE_LABEL[qp]) consumerType = qp;
+  } catch (e) { /* URLSearchParams unsupported — keep default */ }
+  setText('scTypeTag', TYPE_LABEL[consumerType]);
+  var illus = $('scIllus');
+  if (illus) illus.setAttribute('data-type', consumerType);
 
   var roof = $('estRoof');
-  var roofLabel = $('estRoofLabel');
+  var roofUnit = $('estRoofUnit');
   function paintRange(el) {
     if (!el) return;
     var min = parseFloat(el.min) || 0;
@@ -63,28 +60,36 @@
     var pct = ((parseFloat(el.value) - min) / (max - min)) * 100;
     el.style.setProperty('--fill', pct + '%');
   }
-  if (roof) {
-    roof.addEventListener('input', function () {
-      if (roofLabel) roofLabel.textContent = roof.value + ' sq ft';
-      paintRange(roof);
-    });
-    paintRange(roof);
-  }
 
   estForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    var bill = parseFloat($('estBill').value) || 0;
-    if (bill <= 0) { $('estBill').focus(); return; }
-
     var opt = $('estLocation').selectedOptions[0];
     var sun = parseFloat(opt.getAttribute('data-sun')) || 4.4;     // peak sun hours / day
     var tariff = parseFloat(opt.getAttribute('data-tariff')) || 8;  // Rs per unit
-    var roofArea = parseFloat(roof.value) || 500;
+
+    // Validate mandatory inputs
+    var billInput = parseFloat($('estBill').value) || 0;
+    var roofInput = parseFloat(roof.value) || 0;
+    var err = $('estError');
+    if (billInput <= 0 || roofInput <= 0) {
+      if (err) err.hidden = false;
+      (billInput <= 0 ? $('estBill') : roof).focus();
+      return;
+    }
+    if (err) err.hidden = true;
+
+    // Electricity input: rupee bill or kWh units
+    var billUnit = $('estBillUnit') ? $('estBillUnit').value : 'bill';
+    var bill, monthlyUnits;
+    if (billUnit === 'units') { monthlyUnits = billInput; bill = monthlyUnits * tariff; }
+    else { bill = billInput; monthlyUnits = bill / tariff; }
+
+    // Roof area normalised to sq ft (~100 sq ft per kW)
+    var roofArea = (roofUnit && roofUnit.value === 'sqm') ? roofInput * 10.7639 : roofInput;
     var cat = CATEGORY[consumerType];
 
     // Consumption and sizing
-    var monthlyUnits = bill / tariff;
     var dailyUnits = monthlyUnits / 30;
     var sizeFromBill = dailyUnits / sun;          // kW needed to cover usage
     var sizeFromRoof = roofArea / 100;            // ~100 sq ft per kW
@@ -115,24 +120,24 @@
     var payback = annualSaving > 0 ? parseFloat((netCost / annualSaving).toFixed(1)) : 0;
 
     // Paint report
-    $('rSavings25').textContent = fmt(savings25);
-    $('rSavingsAnnual').textContent = fmt(annualSaving);
-    $('rSystem').textContent = systemSize + ' kW';
-    $('rGen').textContent = monthlyGen.toLocaleString('en-IN');
-    $('rPanels').textContent = panels;
-    $('rPayback').textContent = payback + ' yrs';
-    $('rCo2').textContent = co2 + ' T';
-    $('rSubsidy').textContent = subsidy > 0 ? fmt(subsidy) : 'N/A';
-    $('rSubsidy2').textContent = '− ' + (subsidy > 0 ? fmt(subsidy) : rupee + '0');
-    $('rGross').textContent = fmt(grossCost);
-    $('rNet').textContent = fmt(netCost);
-    $('rBillNow').textContent = fmt(bill);
-    $('rBillSolar').textContent = fmt(newBill);
-    $('rReduction').textContent = reduction + '%';
-    $('barNow').style.width = '100%';
-    $('barSolar').style.width = Math.max(8, Math.round(newBill / bill * 100)) + '%';
+    setText('rSavings25', fmt(savings25));
+    setText('rSavingsAnnual', fmt(annualSaving));
+    setText('rSystem', systemSize + ' kW');
+    setText('rGen', monthlyGen.toLocaleString('en-IN'));
+    setText('rPanels', panels);
+    setText('rPayback', payback + ' yrs');
+    setText('rCo2', co2 + ' T');
+    setText('rSubsidy', subsidy > 0 ? fmt(subsidy) : 'N/A');
+    setText('rSubsidy2', '− ' + (subsidy > 0 ? fmt(subsidy) : rupee + '0'));
+    setText('rGross', fmt(grossCost));
+    setText('rNet', fmt(netCost));
+    setText('rBillNow', fmt(bill));
+    setText('rBillSolar', fmt(newBill));
+    setText('rReduction', reduction + '%');
+    if ($('barNow')) $('barNow').style.width = '100%';
+    if ($('barSolar')) $('barSolar').style.width = Math.max(8, Math.round(newBill / bill * 100)) + '%';
 
-    $('scPlaceholder').hidden = true;
+    if ($('scPlaceholder')) $('scPlaceholder').hidden = true;
     var report = $('scReport');
     report.hidden = false;
 
