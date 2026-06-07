@@ -34,6 +34,7 @@
             </li>
           </ul>
         </li>
+        <li><a href="index.html#features">About</a></li>
         <li><a href="calculator.html">Calculator</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -56,6 +57,7 @@
   <section class="hero" id="hero">
     <canvas id="heroCanvas"></canvas>
     <div class="hero-grid-overlay"></div>
+    <div class="hero-sun" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="hero-badge"><span class="badge-dot"></span>India's Trusted Rooftop Solar Partner</div>
       <h1 class="hero-headline">From High Electricity Bills<br/>to <span class="gradient-text">Predictable Solar Savings</span><br/>in Weeks</h1>
@@ -100,6 +102,17 @@
       <span>Preventive O&amp;M Visits</span><span class="mx">&bull;</span>
     </div>
   </div>
+
+  <!-- TRUST / CERTIFICATIONS -->
+  <section class="cert-strip" aria-label="Certifications and credibility">
+    <div class="container cert-inner">
+      <div class="cert-item"><i data-lucide="shield-check"></i><span>MNRE-Approved Vendor</span></div>
+      <div class="cert-item"><i data-lucide="badge-check"></i><span>ALMM-Listed Modules</span></div>
+      <div class="cert-item"><i data-lucide="award"></i><span>ISO 9001:2015 Quality</span></div>
+      <div class="cert-item"><i data-lucide="shield"></i><span>25-Year Performance Warranty</span></div>
+      <div class="cert-item"><i data-lucide="zap"></i><span>BIS-Certified Components</span></div>
+    </div>
+  </section>
 
   <!-- FEATURES -->
   <section class="features" id="features">
@@ -340,41 +353,6 @@
             <a href="society.html" class="btn btn-outline">Explore Societies</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFFERINGS -->
-  <section class="offerings" id="offerings">
-    <div class="container">
-      <div class="section-header" data-animate>
-        <span class="section-tag">Our Offerings</span>
-        <h2>Business and Society <span class="gradient-text">Solar Programs</span></h2>
-        <p>Two focused solar tracks designed for high-load businesses and multi-residential communities.</p>
-      </div>
-      <div class="offerings-grid">
-        <article class="offering-card glass-card" data-animate>
-          <span class="offering-kicker">Commercial Solar</span>
-          <h3>For factories, offices and retail chains</h3>
-          <p>Reduce grid dependency with captive solar planning, compliance support, and measurable performance targets.</p>
-          <ul class="offering-list">
-            <li>Detailed load study and payback model</li>
-            <li>Net metering and utility process support</li>
-            <li>Dedicated account manager for O&amp;M</li>
-          </ul>
-          <a href="commercial.html" class="btn btn-outline">View Commercial Service</a>
-        </article>
-        <article class="offering-card glass-card" data-animate>
-          <span class="offering-kicker">Society Solar</span>
-          <h3>For apartments, gated communities and RWA blocks</h3>
-          <p>Lower common-area electricity costs for lifts, pumps and amenities with transparent committee-ready planning.</p>
-          <ul class="offering-list">
-            <li>Committee proposal with billing baseline</li>
-            <li>Common-area meter mapping and sizing</li>
-            <li>Resident-safe rollout and reporting</li>
-          </ul>
-          <a href="society.html" class="btn btn-outline">View Society Service</a>
-        </article>
       </div>
     </div>
   </section>
@@ -626,10 +604,10 @@
         <p>Operational data from commissioned projects translated into climate impact at portfolio level.</p>
       </div>
       <div class="impact-grid">
-        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#127807;</div><div class="impact-num" data-target="45000">0</div><span class="impact-unit">Tonnes</span><p>CO2 Prevented</p></div>
-        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#9728;</div><div class="impact-num" data-target="180">0</div><span class="impact-unit">GWh</span><p>Clean Energy Generated</p></div>
-        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#127795;</div><div class="impact-num" data-target="220000">0</div><span class="impact-unit">Trees</span><p>Equivalent Trees Planted</p></div>
-        <div class="impact-card glass-card" data-animate><div class="impact-icon">&#128167;</div><div class="impact-num" data-target="3200">0</div><span class="impact-unit">Cr Litres</span><p>Water Saved vs Thermal</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon"><i data-lucide="leaf"></i></div><div class="impact-num" data-target="45000">0</div><span class="impact-unit">Tonnes</span><p>CO2 Prevented</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon"><i data-lucide="sun"></i></div><div class="impact-num" data-target="180">0</div><span class="impact-unit">GWh</span><p>Clean Energy Generated</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon"><i data-lucide="trees"></i></div><div class="impact-num" data-target="220000">0</div><span class="impact-unit">Trees</span><p>Equivalent Trees Planted</p></div>
+        <div class="impact-card glass-card" data-animate><div class="impact-icon"><i data-lucide="droplets"></i></div><div class="impact-num" data-target="3200">0</div><span class="impact-unit">Cr Litres</span><p>Water Saved vs Thermal</p></div>
       </div>
       <div class="mission-box glass-card" data-animate>
         <div class="mission-icon">
@@ -855,19 +833,19 @@
         <div class="cta-contacts" data-animate>
           <div class="contact-card glass-card">
             <div class="contact-method">
-              <div class="contact-icon">&#128222;</div>
+              <div class="contact-icon"><i data-lucide="phone"></i></div>
               <div><span>Call Us Now</span><a href="tel:+919830003000">+91 98 3000 3000</a></div>
             </div>
           </div>
           <div class="contact-card glass-card whatsapp-card">
             <div class="contact-method">
-              <div class="contact-icon">&#128172;</div>
+              <div class="contact-icon"><i data-lucide="message-circle"></i></div>
               <div><span>WhatsApp</span><a href="https://wa.me/919830003000">Chat with Solar Expert</a></div>
             </div>
           </div>
           <div class="contact-card glass-card">
             <div class="contact-method">
-              <div class="contact-icon">&#128231;</div>
+              <div class="contact-icon"><i data-lucide="mail"></i></div>
               <div><span>Email Us</span><a href="mailto:hello@clansmachina.com">hello@clansmachina.com</a></div>
             </div>
           </div>
@@ -1058,5 +1036,8 @@
   <script src="js/shared-footer.js" defer></script>
   <script src="js/shared-theme.js" defer></script>
   <script src="js/script.js" defer></script>
+  <!-- Lucide icon library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>if (window.lucide) lucide.createIcons();</script>
 </body>
 </html>
