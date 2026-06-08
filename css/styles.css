@@ -1697,6 +1697,7 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
 
 /* idle state */
 .sc-vis-idle { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; width: 100%; }
+.sc-vis-idle[hidden], .sc-vis-result[hidden] { display: none; }
 .sc-vis-icon {
   width: 72px; height: 72px; border-radius: 20px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
@@ -3675,12 +3676,14 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   background: rgba(10,7,2,0.91);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 26px 24px;
+  justify-content: safe center;
+  gap: 4px;
+  padding: 22px;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   backdrop-filter: blur(6px);
+  overflow-y: auto;
 }
 .proj-card:hover .proj-card-overlay {
   opacity: 1;
@@ -3690,22 +3693,22 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   font-size: 1.05rem;
   font-weight: 700;
   color: #fff;
-  margin: 10px 0 9px;
+  margin: 6px 0 4px;
   line-height: 1.3;
 }
 .proj-card-overlay p {
   font-size: 0.83rem;
   color: rgba(255,255,255,0.62);
-  line-height: 1.65;
-  margin-bottom: 18px;
+  line-height: 1.55;
+  margin-bottom: 14px;
 }
 
 /* Overlay specs row */
 .proj-overlay-specs {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .proj-spec { display: flex; flex-direction: column; gap: 3px; }
 .proj-spec-val {
