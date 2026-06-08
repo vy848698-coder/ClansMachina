@@ -46,12 +46,55 @@
   var scChoose = $('scChoose');
   var scTool = $('scTool');
 
+  var TYPE_ICON = {
+    residential: '<svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 19v-5h4v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    commercial:  '<svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 8h5v13h-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7h2M7 11h2M7 15h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    industrial:  '<svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M3 21V10l6 4V10l6 4V7l6 3v11H3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  };
+
+  var TYPE_HINTS = {
+    residential: [
+      { label: 'System size',    value: '1–10 kW'         },
+      { label: 'Govt. subsidy',  value: 'Up to ₹78,000'  },
+      { label: 'Avg. payback',   value: '4–6 years'       },
+      { label: 'Monthly saving', value: '₹1,500–4,000'   }
+    ],
+    commercial: [
+      { label: 'System size',    value: '10–100 kW'       },
+      { label: 'Tax benefit',    value: '40% depreciation'},
+      { label: 'Avg. payback',   value: '3–5 years'       },
+      { label: 'Bill reduction', value: '30–50%'          }
+    ],
+    industrial: [
+      { label: 'System size',    value: '100 kW+'         },
+      { label: 'ROI',            value: 'Highest tier'    },
+      { label: 'Avg. payback',   value: '2–4 years'       },
+      { label: 'Monthly saving', value: '₹50,000+'       }
+    ]
+  };
+
   function applyType(type) {
     if (!TYPE_LABEL[type]) type = 'residential';
     consumerType = type;
     setText('scTypeTag', TYPE_LABEL[type]);
-    var il = $('scIllus');
-    if (il) il.setAttribute('data-type', type);
+
+    var icon = $('scVisIcon');
+    if (icon) icon.innerHTML = TYPE_ICON[type];
+
+    var label = $('scVisLabel');
+    if (label) label.textContent = TYPE_LABEL[type] + ' Solar';
+
+    var hintsEl = $('scVisHints');
+    if (hintsEl) {
+      hintsEl.innerHTML = TYPE_HINTS[type].map(function (h) {
+        return '<div class="sc-vis-hint"><span>' + h.label + '</span><strong>' + h.value + '</strong></div>';
+      }).join('');
+    }
+
+    /* reset to idle state when type changes */
+    var idle = $('scVisIdle'), res = $('scVisResult');
+    if (idle) idle.hidden = false;
+    if (res) res.hidden = true;
   }
 
   function setUrlType(type) {
@@ -193,6 +236,31 @@
     if ($('scPlaceholder')) $('scPlaceholder').hidden = true;
     var report = $('scReport');
     report.hidden = false;
+
+    // Update left visual panel: show gauge + mini stats
+    var scVisIdle = $('scVisIdle'), scVisResult = $('scVisResult');
+    if (scVisIdle) scVisIdle.hidden = true;
+    if (scVisResult) scVisResult.hidden = false;
+
+    setText('vSystem', systemSize + ' kW');
+    setText('vPanels', panels + ' panels');
+    setText('vGen', monthlyGen.toLocaleString('en-IN') + ' kWh/mo');
+    setText('vCo2', co2 + ' T/yr');
+
+    // Animate the gauge (circumference of r=62 circle ≈ 390)
+    var gaugeFill = $('gaugeFill');
+    var gaugePct  = $('gaugePct');
+    if (gaugeFill) {
+      var circ = 390;
+      var offset = circ * (1 - reduction / 100);
+      gaugeFill.style.strokeDashoffset = circ; // reset
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          gaugeFill.style.strokeDashoffset = offset;
+        });
+      });
+    }
+    if (gaugePct) gaugePct.textContent = reduction + '%';
 
     // Feed EMI calculator
     hasEstimate = true;

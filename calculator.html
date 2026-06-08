@@ -178,41 +178,42 @@
         </form>
 
         <div class="sc-tool-body">
-          <!-- ILLUSTRATION (swaps per property type) -->
-          <div class="sc-illus" id="scIllus" data-type="residential">
-            <svg data-illus="residential" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-              <circle class="sun" cx="330" cy="58" r="20"/>
-              <g class="ray"><line x1="330" y1="20" x2="330" y2="6"/><line x1="368" y1="58" x2="384" y2="58"/><line x1="357" y1="31" x2="368" y2="20"/><line x1="357" y1="85" x2="368" y2="96"/></g>
-              <path class="wall" d="M90 150 L200 90 L310 150 L310 270 L90 270 Z"/>
-              <path class="ln" d="M90 150 L200 90 L310 150"/>
-              <g class="panel"><path d="M150 118 L250 118 L268 150 L132 150 Z"/><line x1="183" y1="118" x2="166" y2="150" class="ln"/><line x1="216" y1="118" x2="234" y2="150" class="ln"/><line x1="141" y1="134" x2="259" y2="134" class="ln"/></g>
-              <rect class="win" x="120" y="180" width="48" height="48" rx="3"/>
-              <rect class="win" x="232" y="180" width="48" height="48" rx="3"/>
-              <rect class="wall" x="178" y="208" width="44" height="62" rx="2"/>
-              <line class="ln" x1="60" y1="270" x2="340" y2="270"/>
-            </svg>
-            <svg data-illus="commercial" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-              <circle class="sun" cx="340" cy="56" r="18"/>
-              <g class="ray"><line x1="340" y1="22" x2="340" y2="10"/><line x1="374" y1="56" x2="388" y2="56"/><line x1="364" y1="32" x2="374" y2="22"/></g>
-              <rect class="wall" x="110" y="70" width="180" height="200" rx="2"/>
-              <g class="panel"><rect x="120" y="40" width="160" height="30" rx="2"/><line x1="173" y1="40" x2="173" y2="70" class="ln"/><line x1="226" y1="40" x2="226" y2="70" class="ln"/></g>
-              <rect class="win" x="128" y="92" width="34" height="34"/><rect class="win" x="183" y="92" width="34" height="34"/><rect class="win" x="238" y="92" width="34" height="34"/>
-              <rect class="win" x="128" y="144" width="34" height="34"/><rect class="win" x="183" y="144" width="34" height="34"/><rect class="win" x="238" y="144" width="34" height="34"/>
-              <rect class="win" x="128" y="196" width="34" height="34"/><rect class="win" x="238" y="196" width="34" height="34"/>
-              <rect class="wall" x="183" y="220" width="34" height="50"/>
-              <line class="ln" x1="70" y1="270" x2="330" y2="270"/>
-            </svg>
-            <svg data-illus="industrial" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-              <circle class="sun" cx="345" cy="54" r="17"/>
-              <g class="ray"><line x1="345" y1="22" x2="345" y2="11"/><line x1="377" y1="54" x2="390" y2="54"/></g>
-              <path class="wall" d="M60 270 V150 L120 180 V150 L180 180 V150 L240 180 V120 L320 150 V270 Z"/>
-              <g class="panel"><path d="M68 138 L132 138 L120 150 L60 150 Z" transform="translate(0,-2)"/></g>
-              <g class="panel"><rect x="250" y="98" width="62" height="22" rx="2"/></g>
-              <rect class="wall" x="280" y="60" width="20" height="60"/>
-              <rect class="win" x="80" y="200" width="28" height="28"/><rect class="win" x="140" y="200" width="28" height="28"/><rect class="win" x="200" y="200" width="28" height="28"/>
-              <rect class="wall" x="262" y="210" width="40" height="60"/>
-              <line class="ln" x1="40" y1="270" x2="360" y2="270"/>
-            </svg>
+          <!-- VISUAL PANEL (idle context + result gauge) -->
+          <div class="sc-vis" id="scVis" data-type="residential">
+
+            <!-- IDLE: property-type context -->
+            <div class="sc-vis-idle" id="scVisIdle">
+              <div class="sc-vis-icon" id="scVisIcon">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 19v-5h4v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="sc-vis-type-label" id="scVisLabel">Residential Solar</div>
+              <div class="sc-vis-hints" id="scVisHints">
+                <div class="sc-vis-hint"><span>System size</span><strong>1–10 kW</strong></div>
+                <div class="sc-vis-hint"><span>Govt. subsidy</span><strong>Up to ₹78,000</strong></div>
+                <div class="sc-vis-hint"><span>Avg. payback</span><strong>4–6 years</strong></div>
+                <div class="sc-vis-hint"><span>Monthly saving</span><strong>₹1,500–4,000</strong></div>
+              </div>
+              <p class="sc-vis-prompt">Fill in your details and hit <strong>Calculate</strong></p>
+            </div>
+
+            <!-- RESULT: animated gauge + mini stats -->
+            <div class="sc-vis-result" id="scVisResult" hidden>
+              <div class="sc-gauge-wrap">
+                <svg class="sc-gauge" viewBox="0 0 160 160" aria-hidden="true">
+                  <circle class="sc-gauge-track" cx="80" cy="80" r="62"/>
+                  <circle class="sc-gauge-fill" id="gaugeFill" cx="80" cy="80" r="62"/>
+                  <text class="sc-gauge-pct" id="gaugePct" x="80" y="76" text-anchor="middle">0%</text>
+                  <text class="sc-gauge-sub" x="80" y="96" text-anchor="middle">bill offset</text>
+                </svg>
+              </div>
+              <div class="sc-vis-mini-grid">
+                <div class="sc-vis-mini"><span>System</span><strong id="vSystem">–</strong></div>
+                <div class="sc-vis-mini"><span>Panels</span><strong id="vPanels">–</strong></div>
+                <div class="sc-vis-mini"><span>Generation</span><strong id="vGen">–</strong></div>
+                <div class="sc-vis-mini"><span>CO₂ saved</span><strong id="vCo2">–</strong></div>
+              </div>
+            </div>
+
           </div>
 
           <!-- RESULTS -->
