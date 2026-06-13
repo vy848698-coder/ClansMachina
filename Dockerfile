@@ -12,8 +12,9 @@ RUN a2enmod rewrite
 COPY . /var/www/html/
 
 # Make the blog cover-image upload folder writable by Apache.
-RUN mkdir -p /var/www/html/image/blog/uploads \
-    && chown -R www-data:www-data /var/www/html/image/blog/uploads
+# blog-save.php writes uploaded images directly into image/blog/.
+RUN mkdir -p /var/www/html/image/blog \
+    && chown -R www-data:www-data /var/www/html/image/blog
 
 # Railway sets $PORT at runtime. Configure Apache to read it from the environment
 # so it listens on whatever port Railway assigns (falls back to 80 locally).
