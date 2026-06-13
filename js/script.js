@@ -615,26 +615,39 @@
         message: (document.getElementById('cMsg') || {}).value || ''
       };
 
+      const showError = msg => {
+        if (formErrors) {
+          formErrors.innerHTML = '<ul><li>' + msg + '</li></ul>';
+          formErrors.style.display = 'block';
+        }
+      };
+
       fetch('submit-contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       })
-        .then(res => res.json())
+        .then(async res => {
+          const text = await res.text();
+          let data;
+          try {
+            data = JSON.parse(text);
+          } catch (e) {
+            // Server returned non-JSON (likely a PHP error page). Surface a snippet.
+            throw new Error('Server error (' + res.status + '): ' + text.slice(0, 200));
+          }
+          return data;
+        })
         .then(data => {
           if (data.ok) {
             if (formSuccess) formSuccess.style.display = 'flex';
             contactForm.reset();
-          } else if (formErrors) {
-            formErrors.innerHTML = '<ul><li>' + (data.message || 'Submission failed.') + '</li></ul>';
-            formErrors.style.display = 'block';
+          } else {
+            showError(data.message || 'Submission failed.');
           }
         })
-        .catch(() => {
-          if (formErrors) {
-            formErrors.innerHTML = '<ul><li>Network error. Please try again.</li></ul>';
-            formErrors.style.display = 'block';
-          }
+        .catch(err => {
+          showError((err && err.message) ? err.message : 'Network error. Please try again.');
         })
         .finally(restoreBtn);
     });
