@@ -417,13 +417,19 @@
       const chip = card.querySelector('.bp-chip');
       const titleText = title ? title.textContent.toLowerCase() : '';
       const chipText = chip ? chip.textContent.toLowerCase() : '';
-      card.dataset.search = (titleText + ' ' + chipText + ' ' + (card.dataset.category || '')).trim();
+      const catText = (card.dataset.category || '').toLowerCase();
+      // Free-text search looks across title + chip + category.
+      card.dataset.search = (titleText + ' ' + chipText + ' ' + catText).trim();
+      // Category filter matches whole slugs only (space-separated), so "solar"
+      // never accidentally matches "solar-basics".
+      card.dataset.cats = ' ' + catText.split(/\s+/).filter(Boolean).join(' ') + ' ';
     });
 
     function cardMatches(card) {
       const haystack = card.dataset.search || '';
       const matchesQuery = !query || haystack.includes(query);
-      const matchesFilter = activeFilter === 'all' || haystack.includes(activeFilter);
+      const matchesFilter = activeFilter === 'all' ||
+        (card.dataset.cats || '').includes(' ' + activeFilter + ' ');
       return matchesQuery && matchesFilter;
     }
 
