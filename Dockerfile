@@ -5,8 +5,10 @@ FROM php:8.2-apache
 # PDO MySQL (used by db.php) + mysqli (used by get_inquiries.php / update_status.php).
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-# Apache: enable URL rewriting and allow .htaccess overrides.
-RUN a2enmod rewrite
+# Apache: ensure exactly ONE MPM is active (prefork, required for mod_php).
+# Disabling the others prevents "More than one MPM loaded" startup crashes.
+RUN a2dismod mpm_event mpm_worker 2>/dev/null || true
+RUN a2enmod mpm_prefork rewrite
 
 # Copy the site into Apache's web root.
 COPY . /var/www/html/
