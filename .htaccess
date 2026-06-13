@@ -13,10 +13,10 @@
 # Don't list directory contents
 Options -Indexes
 
-# Send old blog.html links to the new dynamic blog.php (relative — works at any base path)
+# Send old blog.html links to the new dynamic blog.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^blog\.html$ blog.php [R=301,L]
+    RewriteRule ^blog\.html$ /ClansMachina/blog.php [R=301,L]
 </IfModule>
 
 # partials/ are includes, never meant to be opened directly
