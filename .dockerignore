@@ -1,0 +1,7 @@
+node_modules
+.git
+*.log
+server.log
+*.md
+clansmachina_backup.sql
+clansmachina_railway.sql
