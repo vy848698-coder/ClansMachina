@@ -7,11 +7,31 @@
  * Locally (XAMPP) none are set, so it falls back to the defaults below
  * (host=localhost, user=root, empty password, db=clansmachina).
  */
-$DB_HOST = getenv('MYSQLHOST')     ?: 'localhost';
-$DB_PORT = getenv('MYSQLPORT')     ?: '3306';
-$DB_USER = getenv('MYSQLUSER')     ?: 'root';
-$DB_PASS = getenv('MYSQLPASSWORD') !== false ? getenv('MYSQLPASSWORD') : '';
-$DB_NAME = getenv('MYSQLDATABASE') ?: 'clansmachina';
+// Defaults for local XAMPP.
+$DB_HOST = 'localhost';
+$DB_PORT = '3306';
+$DB_USER = 'root';
+$DB_PASS = '';
+$DB_NAME = 'clansmachina';
+
+// Railway provides a single connection string, e.g.
+//   mysql://user:pass@host:port/dbname
+// Prefer it when present; otherwise fall back to discrete MYSQL* vars, then defaults.
+$mysqlUrl = getenv('MYSQL_URL') ?: getenv('DATABASE_URL');
+if ($mysqlUrl && strpos($mysqlUrl, 'mysql://') === 0) {
+    $u = parse_url($mysqlUrl);
+    $DB_HOST = $u['host'] ?? $DB_HOST;
+    $DB_PORT = isset($u['port']) ? (string)$u['port'] : $DB_PORT;
+    $DB_USER = isset($u['user']) ? urldecode($u['user']) : $DB_USER;
+    $DB_PASS = isset($u['pass']) ? urldecode($u['pass']) : $DB_PASS;
+    $DB_NAME = isset($u['path']) ? ltrim($u['path'], '/') : $DB_NAME;
+} else {
+    $DB_HOST = getenv('MYSQLHOST')     ?: $DB_HOST;
+    $DB_PORT = getenv('MYSQLPORT')     ?: $DB_PORT;
+    $DB_USER = getenv('MYSQLUSER')     ?: $DB_USER;
+    $DB_PASS = getenv('MYSQLPASSWORD') !== false ? getenv('MYSQLPASSWORD') : $DB_PASS;
+    $DB_NAME = getenv('MYSQLDATABASE') ?: $DB_NAME;
+}
 
 // Admin dashboard login.
 // Password is stored as a bcrypt hash, never plain text.
