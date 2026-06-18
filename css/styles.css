@@ -4313,6 +4313,34 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
 [data-theme="clans-brand"] .cert-item { color: #163300; }
 [data-theme="clans-brand"] .cert-item svg { color: #1f6b1a; }
 
+/* Projects page: amber hero glow + residential badge → on-brand green */
+[data-theme="clans-brand"] .proj-hero-glow {
+  background: radial-gradient(circle, rgba(137,234,95,0.22) 0%, rgba(137,234,95,0.07) 45%, transparent 70%);
+}
+/* Badges sit on the dark info bar / hover overlay — use a solid fill +
+   white text so the label is crisp, not mushy tinted-text-on-dark. */
+[data-theme="clans-brand"] .proj-badge--residential {
+  background: #1f6b1a;
+  border-color: #1f6b1a;
+  color: #fff;
+}
+[data-theme="clans-brand"] .proj-badge--commercial {
+  background: #1f6b1a;
+  border-color: #1f6b1a;
+  color: #fff;
+}
+/* Active filter pill: near-black text on deep green is muddy — use white */
+[data-theme="clans-brand"] .proj-filter.active {
+  background: #1f6b1a;
+  border-color: #1f6b1a;
+  color: #fff;
+}
+/* Spec values sit on the dark hover overlay — use bright solar green so
+   the deep brand green doesn't disappear against the dark scrim. */
+[data-theme="clans-brand"] .proj-spec-val {
+  color: #89ea5f;
+}
+
 /* --- MID: Slate Teal --- */
 [data-theme="slate-teal"] {
   --bg-primary: #182f3d;
@@ -4623,7 +4651,7 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
 .proj-filter:hover {
   border-color: var(--border-bright);
   color: var(--text-primary);
-  background: var(--surface-2);
+  background: var(--green-dim);
 }
 .proj-filter.active {
   background: var(--green);

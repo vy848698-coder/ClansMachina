@@ -43,16 +43,16 @@
         <p class="proj-hero-sub">From rural homes in Odisha to urban rooftops across India — each project is a 25-year promise delivered and a family's electricity bill cut near zero.</p>
       </div>
       <div class="proj-impact-strip" data-animate>
-        <div class="proj-impact-item glass-card">
-          <span class="proj-impact-num">1,000+</span>
+        <div class="proj-impact-item glass-card" data-countup data-target="1000" data-suffix="+">
+          <span class="proj-impact-num"><strong>1,000+</strong></span>
           <span class="proj-impact-label">Solar Installations</span>
         </div>
-        <div class="proj-impact-item glass-card">
-          <span class="proj-impact-num">1,200+</span>
+        <div class="proj-impact-item glass-card" data-countup data-target="1200" data-suffix="+">
+          <span class="proj-impact-num"><strong>1,200+</strong></span>
           <span class="proj-impact-label">Satisfied Customers</span>
         </div>
-        <div class="proj-impact-item glass-card">
-          <span class="proj-impact-num">98%</span>
+        <div class="proj-impact-item glass-card" data-countup data-target="98" data-suffix="%">
+          <span class="proj-impact-num"><strong>98%</strong></span>
           <span class="proj-impact-label">Customer Retention</span>
         </div>
         <div class="proj-impact-item glass-card">
@@ -78,7 +78,6 @@
         <button class="proj-filter active" data-filter="all">All Projects</button>
         <button class="proj-filter" data-filter="residential">Residential</button>
         <button class="proj-filter" data-filter="commercial">Commercial</button>
-        <button class="proj-filter" data-filter="society">Society</button>
       </div>
 
       <div class="proj-grid" id="projGrid">
@@ -150,10 +149,10 @@
         </div>
 
         <!-- Card 3 — Solar carport, Sabulia Odisha -->
-        <div class="proj-card" data-type="residential" data-animate>
+        <div class="proj-card" data-type="commercial" data-animate>
           <img src="image/project/2.png" alt="Solar carport installation — Sabulia, Odisha" loading="lazy" />
           <div class="proj-card-info">
-            <span class="proj-badge proj-badge--residential">Residential</span>
+            <span class="proj-badge proj-badge--commercial">Commercial</span>
             <h3>Solar Carport &mdash; 2 kW</h3>
             <span class="proj-location-tag">
               <svg width="12" height="12" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
@@ -161,7 +160,7 @@
             </span>
           </div>
           <div class="proj-card-overlay">
-            <span class="proj-badge proj-badge--residential">Residential</span>
+            <span class="proj-badge proj-badge--commercial">Commercial</span>
             <h3>Solar Carport &mdash; 2 kW</h3>
             <p>Elevated carport-style mounting &mdash; doubles as shade cover and power source. GPS-verified install. Completed May 2026.</p>
             <div class="proj-overlay-specs">
@@ -357,7 +356,8 @@
           cards.forEach(function (card) {
             var show = filter === 'all' || card.dataset.type === filter;
             card.style.display = show ? '' : 'none';
-            if (show) visible++;
+            // Ensure a re-shown card isn't stuck at the data-animate opacity:0
+            if (show) { card.classList.add('visible'); visible++; }
           });
 
           if (empty) empty.style.display = visible === 0 ? 'flex' : 'none';

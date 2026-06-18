@@ -329,9 +329,9 @@
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        strong.textContent = Math.floor(eased * target) + suffix;
+        strong.textContent = Math.floor(eased * target).toLocaleString('en-IN') + suffix;
         if (progress < 1) requestAnimationFrame(tick);
-        else strong.textContent = target + suffix;
+        else strong.textContent = target.toLocaleString('en-IN') + suffix;
       }
       requestAnimationFrame(tick);
     }
