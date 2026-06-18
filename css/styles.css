@@ -4110,9 +4110,10 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
    light brand theme. No HTML changes — pure theme styling.
    ============================================================ */
 
-/* Vivid headline gradient — deep brand green into bright solar green */
+/* Vivid headline gradient — deep brand green into a rich, saturated
+   green. Avoids the pale #89ea5f end that washed out on white. */
 [data-theme="clans-brand"] .gradient-text {
-  background: linear-gradient(115deg, #163300 0%, #2f8f2a 45%, #89ea5f 100%);
+  background: linear-gradient(115deg, #163300 0%, #1f7a1a 50%, #37b32e 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
 }

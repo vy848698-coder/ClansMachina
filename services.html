@@ -182,6 +182,39 @@
     .sov-card--mnt  { --ac:#e0f7fa; --ac2:#00897b; }
     .sov-card--con  { --ac:#fce4ec; --ac2:#e53935; }
 
+    /* Clans Brand theme: unify every service card to the brand green */
+    [data-theme="clans-brand"] .sov-card--res,
+    [data-theme="clans-brand"] .sov-card--com,
+    [data-theme="clans-brand"] .sov-card--ind,
+    [data-theme="clans-brand"] .sov-card--epc,
+    [data-theme="clans-brand"] .sov-card--mnt,
+    [data-theme="clans-brand"] .sov-card--con {
+      --ac:#eafbe3; --ac2:#1f6b1a;
+    }
+    /* Make the icon tile a solid green fill so cards read bold, not pale */
+    [data-theme="clans-brand"] .sov-icon-wrap {
+      background: linear-gradient(135deg, #1f6b1a, #2a8a23);
+      color: #fff;
+      box-shadow: 0 8px 20px -8px rgba(31,107,26,0.45);
+    }
+    [data-theme="clans-brand"] .sov-card:hover .sov-icon-wrap {
+      background: linear-gradient(135deg, #1f7a1a, #37b32e);
+      box-shadow: 0 12px 26px -8px rgba(31,107,26,0.55);
+    }
+    /* Crisper resting button + brighter solar-green hover glow */
+    [data-theme="clans-brand"] .sov-btn {
+      background: rgba(137,234,95,0.16);
+      border-color: rgba(31,107,26,0.30);
+    }
+    [data-theme="clans-brand"] .sov-btn:hover {
+      box-shadow: 0 10px 24px -10px rgba(137,234,95,0.7);
+    }
+    /* Slightly stronger card hover edge */
+    [data-theme="clans-brand"] .sov-card:hover {
+      border-color: rgba(31,107,26,0.40);
+      box-shadow: 0 26px 60px -18px rgba(22,51,0,0.16);
+    }
+
     .sov-card-accent { background:radial-gradient(ellipse at top left, var(--ac) 0%, transparent 65%); }
 
     .sov-icon-wrap {
@@ -484,6 +517,7 @@
     .ssol-stat:nth-child(2){ --ac: var(--blue); }
     .ssol-stat:nth-child(3){ --ac: #f59e0b; }
     .ssol-stat:nth-child(4){ --ac: var(--green); }
+    [data-theme="clans-brand"] .ssol-stat:nth-child(3){ --ac: #1f6b1a; }
 
     .ssol-stat-ico {
       width: 38px; height: 38px; border-radius: 11px;
