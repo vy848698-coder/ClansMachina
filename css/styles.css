@@ -4273,8 +4273,10 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
 [data-theme="clans-brand"] .about-impact-band {
   background: linear-gradient(120deg, rgba(137,234,95,0.12), rgba(96,169,176,0.08));
 }
-/* The muddy olive --purple reads as a dead icon on white — use brand green */
-[data-theme="clans-brand"] .icon-purple {
+/* Unify the blue/purple icon tiles to brand green on the light theme
+   (purple --olive reads as a dead icon; blue clashes with the green brand) */
+[data-theme="clans-brand"] .icon-purple,
+[data-theme="clans-brand"] .icon-blue {
   background: var(--green-dim); border-color: var(--border-bright); color: #1f6b1a;
 }
 
