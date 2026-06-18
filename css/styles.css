@@ -4341,6 +4341,71 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   color: #89ea5f;
 }
 
+/* ---- Calculator: white slider tracks/bars vanish on the white theme ---- */
+[data-theme="clans-brand"] .sc-range {
+  background: linear-gradient(to right, #1f6b1a 0%, #1f6b1a var(--fill, 50%), rgba(22,51,0,0.12) var(--fill, 50%), rgba(22,51,0,0.12) 100%);
+}
+[data-theme="clans-brand"] .sc-range-blue {
+  background: linear-gradient(to right, var(--blue) 0%, var(--blue) var(--fill, 50%), rgba(22,51,0,0.12) var(--fill, 50%), rgba(22,51,0,0.12) 100%);
+}
+[data-theme="clans-brand"] .sc-emi-splitbar,
+[data-theme="clans-brand"] .sc-bill-bar {
+  background: rgba(22,51,0,0.08);
+}
+
+/* Calculator category cards: bolder, catchier hover on the brand theme */
+[data-theme="clans-brand"] .sc-choose-card:hover {
+  border-color: rgba(31,107,26,0.45);
+  box-shadow: 0 22px 48px -18px rgba(22,51,0,0.18), 0 0 0 1px rgba(137,234,95,0.30);
+}
+[data-theme="clans-brand"] .sc-choose-card:hover .sc-choose-icon {
+  background: linear-gradient(135deg, #1f6b1a, #37b32e);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.06) rotate(-4deg);
+}
+[data-theme="clans-brand"] .sc-choose-icon {
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+/* Tag pills use a white tint that vanishes on the light theme */
+[data-theme="clans-brand"] .sc-choose-tag {
+  background: rgba(137,234,95,0.16);
+  border-color: rgba(31,107,26,0.25);
+}
+
+/* Result panels use rgba(0,0,0,0.22) → flat gray on white. Use a clean
+   light card so the calculated results read crisply. */
+[data-theme="clans-brand"] .sc-results,
+[data-theme="clans-brand"] .sc-emi-output {
+  background: #f4f9f3;
+  border-color: rgba(22,51,0,0.10);
+}
+/* EMI hero + card tint were blue — make them brand green */
+[data-theme="clans-brand"] .sc-emi-hero {
+  background: linear-gradient(135deg, rgba(137,234,95,0.18), rgba(137,234,95,0.05));
+  border-color: rgba(31,107,26,0.25);
+}
+[data-theme="clans-brand"] .sc-emi-hero-value { color: #1f6b1a; }
+[data-theme="clans-brand"] .sc-card-emi {
+  background: linear-gradient(180deg, rgba(137,234,95,0.06), transparent 40%);
+}
+/* "EMI Calculator" heading was a blue gradient */
+[data-theme="clans-brand"] .gradient-text-blue {
+  background: linear-gradient(115deg, #163300 0%, #1f7a1a 50%, #37b32e 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+/* Random purple/cyan/blue stat numbers → on-brand green on white */
+[data-theme="clans-brand"] .sc-stat-purple .sc-stat-value,
+[data-theme="clans-brand"] .sc-stat-cyan .sc-stat-value,
+[data-theme="clans-brand"] .sc-stat-blue .sc-stat-value {
+  color: #1f6b1a;
+}
+/* Inner stat tiles: near-invisible white tint → white card on the panel */
+[data-theme="clans-brand"] .sc-stat {
+  background: #ffffff;
+  border-color: rgba(22,51,0,0.10);
+}
+
 /* --- MID: Slate Teal --- */
 [data-theme="slate-teal"] {
   --bg-primary: #182f3d;
