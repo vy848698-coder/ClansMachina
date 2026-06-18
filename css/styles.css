@@ -4417,6 +4417,11 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
     linear-gradient(155deg, #2a8a23, #163300),
     radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), transparent 50%);
 }
+/* Active category was a blue highlight — make it brand green */
+[data-theme="clans-brand"] .blog-categories a.active {
+  background: var(--green-dim);
+  color: #1f6b1a;
+}
 
 /* --- MID: Slate Teal --- */
 [data-theme="slate-teal"] {
