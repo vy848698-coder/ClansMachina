@@ -4103,6 +4103,166 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   background-image: linear-gradient(rgba(22,51,0,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(22,51,0,0.05) 1px,transparent 1px);
 }
 
+/* ============================================================
+   CLANS BRAND — BOLD & CATCHY LANDING POLISH
+   Scoped enhancements so the signature solar green (#89EA5F) and
+   deep brand green (#163300) drive a punchier, cleaner hero on the
+   light brand theme. No HTML changes — pure theme styling.
+   ============================================================ */
+
+/* Vivid headline gradient — deep brand green into bright solar green */
+[data-theme="clans-brand"] .gradient-text {
+  background: linear-gradient(115deg, #163300 0%, #2f8f2a 45%, #89ea5f 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* Hero glow recolored gold → on-brand green/sky (intensity set in the
+   bolder override further down). */
+
+/* Brand-green badge instead of the gold one for cohesion */
+[data-theme="clans-brand"] .hero-badge {
+  background: rgba(137,234,95,0.14);
+  border-color: rgba(31,107,26,0.35);
+  color: #1f6b1a;
+}
+[data-theme="clans-brand"] .hero-badge svg { color: #1f6b1a; }
+
+/* Punchier neon CTA — bright solar-green hover glow */
+[data-theme="clans-brand"] .btn-neon {
+  background: #1f6b1a;
+  box-shadow: 0 4px 14px rgba(31,107,26,0.22);
+}
+[data-theme="clans-brand"] .btn-neon:hover {
+  background: #2a8a23;
+  box-shadow: 0 0 26px rgba(137,234,95,0.55), 0 6px 20px rgba(31,107,26,0.28);
+  transform: translateY(-2px);
+}
+
+/* Crisper section tags + cleaner glass CTA on the white canvas */
+[data-theme="clans-brand"] .section-tag {
+  background: rgba(137,234,95,0.16);
+  border-color: rgba(31,107,26,0.30);
+  color: #1f6b1a;
+}
+[data-theme="clans-brand"] .btn-glass {
+  background: #ffffff;
+  border-color: rgba(22,51,0,0.16);
+  box-shadow: 0 2px 10px rgba(22,51,0,0.06);
+}
+[data-theme="clans-brand"] .btn-glass:hover {
+  background: #f1f7f1;
+  border-color: #1f6b1a;
+  color: #1f6b1a;
+}
+
+/* Lift cards / feature icons with a brighter solar-green edge on hover */
+[data-theme="clans-brand"] .feature-card:hover,
+[data-theme="clans-brand"] .svc2-card:hover {
+  border-color: rgba(137,234,95,0.7);
+  box-shadow: 0 12px 34px rgba(22,51,0,0.10), 0 0 0 1px rgba(137,234,95,0.25);
+}
+
+/* Brighter, more legible marquee strip on the light theme */
+[data-theme="clans-brand"] .marquee-strip {
+  background: #163300;
+  border-top-color: rgba(137,234,95,0.25);
+  border-bottom-color: rgba(137,234,95,0.25);
+}
+[data-theme="clans-brand"] .marquee-track span { color: #eafbe3; }
+[data-theme="clans-brand"] .marquee-track .mx { color: #89ea5f; }
+
+/* Bolder, more energetic hero glow on the brand theme */
+[data-theme="clans-brand"] .hero-sunburst {
+  background: radial-gradient(circle,
+    rgba(137,234,95,0.62) 0%,
+    rgba(137,234,95,0.30) 22%,
+    rgba(96,169,176,0.16) 42%,
+    rgba(137,234,95,0.06) 58%,
+    transparent 74%);
+}
+[data-theme="clans-brand"] .hero-sun {
+  background: radial-gradient(circle, rgba(137,234,95,0.48) 0%, rgba(96,169,176,0.18) 40%, transparent 70%);
+}
+
+/* ---- Convert hardcoded amber accents to brand green (Services) ---- */
+[data-theme="clans-brand"] .services .section-tag {
+  background: rgba(137,234,95,0.16); border-color: rgba(31,107,26,0.30); color: #1f6b1a;
+}
+[data-theme="clans-brand"] .services .section-header h2 .gradient-text {
+  background: linear-gradient(135deg, #1f6b1a, #89ea5f);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+[data-theme="clans-brand"] .svc2-icon {
+  background: linear-gradient(135deg, #1f6b1a, #2a8a23);
+  box-shadow: 0 12px 26px -6px rgba(31,107,26,0.45), 0 0 0 6px var(--bg-secondary);
+}
+[data-theme="clans-brand"] .svc2-card:hover { border-color: rgba(31,107,26,0.45); }
+[data-theme="clans-brand"] .svc2-card:hover .svc2-icon {
+  background: linear-gradient(135deg, #1f6b1a, #2a8a23);
+  color: #fff;
+  box-shadow: 0 12px 26px -6px rgba(31,107,26,0.5), 0 0 0 6px var(--bg-secondary);
+}
+[data-theme="clans-brand"] .svc2-rule { background: #1f6b1a; }
+[data-theme="clans-brand"] .svc2-btn svg { color: #1f6b1a; }
+[data-theme="clans-brand"] .svc2-btn:hover {
+  background: #1f6b1a; border-color: #1f6b1a; color: #fff;
+  box-shadow: 0 10px 22px -8px rgba(31,107,26,0.5);
+}
+[data-theme="clans-brand"] .svc2-btn:hover svg { color: #fff; }
+
+/* ---- Convert hardcoded amber accents to brand green (Testimonials) ---- */
+[data-theme="clans-brand"] .testimonials {
+  background: radial-gradient(ellipse at 50% 0%, rgba(137,234,95,0.10), transparent 65%);
+}
+[data-theme="clans-brand"] .testi-rating-summary { border-color: rgba(31,107,26,0.25); }
+[data-theme="clans-brand"] .testi-summary-stars,
+[data-theme="clans-brand"] .testi-stars,
+[data-theme="clans-brand"] .testi-mark { color: #1f6b1a; }
+[data-theme="clans-brand"] .testi-card {
+  background: linear-gradient(165deg, rgba(137,234,95,0.08), transparent 45%), var(--bg-secondary);
+}
+[data-theme="clans-brand"] .testi-card:hover {
+  border-color: rgba(31,107,26,0.40);
+  box-shadow: 0 30px 56px -24px rgba(22,51,0,0.18), 0 0 0 1px rgba(137,234,95,0.25);
+}
+[data-theme="clans-brand"] .testi-featured {
+  border-color: rgba(31,107,26,0.40);
+  background: linear-gradient(165deg, rgba(137,234,95,0.16), transparent 55%), var(--bg-secondary);
+  box-shadow: 0 22px 48px -22px rgba(31,107,26,0.30);
+}
+[data-theme="clans-brand"] .testi-avatar {
+  background: linear-gradient(135deg, #1f6b1a, #2a8a23);
+  box-shadow: 0 8px 18px -8px rgba(31,107,26,0.5);
+}
+
+/* ---- Convert hardcoded amber accents to brand green (Benefits) ---- */
+[data-theme="clans-brand"] .benefit-card {
+  background: linear-gradient(160deg, rgba(137,234,95,0.07), transparent 42%), var(--bg-secondary);
+}
+[data-theme="clans-brand"] .benefit-card::before {
+  background: linear-gradient(90deg, #1f6b1a, #89ea5f);
+}
+[data-theme="clans-brand"] .benefit-card::after {
+  background: radial-gradient(circle, rgba(137,234,95,0.20), transparent 70%);
+}
+[data-theme="clans-brand"] .benefit-card:hover {
+  border-color: rgba(31,107,26,0.45);
+  box-shadow: 0 30px 56px -24px rgba(22,51,0,0.18), 0 0 0 1px rgba(137,234,95,0.25);
+}
+[data-theme="clans-brand"] .benefit-ico {
+  color: #1f6b1a;
+  background: linear-gradient(145deg, rgba(137,234,95,0.20), rgba(31,107,26,0.08));
+  border-color: rgba(31,107,26,0.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 8px 18px -10px rgba(31,107,26,0.4);
+}
+[data-theme="clans-brand"] .benefit-card:hover .benefit-ico {
+  background: linear-gradient(145deg, #1f6b1a, #2a8a23);
+  color: #fff;
+  box-shadow: 0 14px 28px -10px rgba(31,107,26,0.5);
+}
+
 /* --- MID: Slate Teal --- */
 [data-theme="slate-teal"] {
   --bg-primary: #182f3d;
