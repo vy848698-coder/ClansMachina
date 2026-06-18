@@ -4406,6 +4406,18 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   border-color: rgba(22,51,0,0.10);
 }
 
+/* Society page: timeline connector green→teal gradient → all green */
+[data-theme="clans-brand"] .timeline-connector {
+  background: linear-gradient(to bottom, #1f6b1a, #37b32e);
+}
+
+/* Blog page: the "Solar Guide" book illustration was hardcoded blue */
+[data-theme="clans-brand"] .blog-guide-book {
+  background:
+    linear-gradient(155deg, #2a8a23, #163300),
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), transparent 50%);
+}
+
 /* --- MID: Slate Teal --- */
 [data-theme="slate-teal"] {
   --bg-primary: #182f3d;
