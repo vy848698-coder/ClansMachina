@@ -768,10 +768,9 @@ p { color:var(--text-secondary); font-size:1rem; line-height:1.7; }
 .logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
 .logo-accent { color: var(--green); }
 .logo-img {
-  height: 38px;
+  height: 44px;
   width: auto;
   display: block;
-  filter: var(--logo-filter);
   transition: opacity 0.2s;
 }
 .logo-img:hover { opacity: 0.85; }
@@ -2768,58 +2767,103 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
 .testi-summary-stars { color: #f5a524; letter-spacing: 2px; font-size: 1rem; }
 .testi-rating-summary strong { color: var(--text-primary); font-family: var(--font-display); font-size: 1rem; }
 .testi-summary-count { color: var(--text-muted); font-size: 0.82rem; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
 .testi-card {
   position: relative;
-  padding: 34px 30px 28px;
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px 26px;
+  border-radius: 22px;
   overflow: hidden;
   isolation: isolate;
   background:
-    linear-gradient(165deg, rgba(245,165,36,0.05), transparent 45%),
+    linear-gradient(165deg, rgba(245,165,36,0.06), transparent 42%),
     var(--bg-secondary);
   border: 1px solid var(--border);
-  box-shadow: 0 16px 36px -22px rgba(0,0,0,0.55);
-  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 18px 40px -24px rgba(0,0,0,0.6);
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), border-color 0.45s ease, box-shadow 0.45s ease;
 }
+/* glowing accent bar across the top of each card */
+.testi-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f5a524, #e8841a);
+  opacity: 0;
+  transform: scaleX(0.4);
+  transform-origin: left;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: 4;
+}
+.testi-card:hover::before { opacity: 1; transform: scaleX(1); }
 /* large decorative quotation watermark */
 .testi-mark {
-  position: absolute;
-  top: 6px; right: 22px;
+  position: relative;
+  display: block;
+  margin: 0 0 -18px;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 5.5rem;
+  font-size: 3.6rem;
   line-height: 1;
   color: #f5a524;
-  opacity: 0.14;
-  z-index: 0;
+  opacity: 0.45;
+  z-index: 1;
   pointer-events: none;
 }
 .testi-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(245,165,36,0.45);
-  box-shadow: 0 30px 56px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,165,36,0.12);
+  transform: translateY(-10px);
+  border-color: rgba(245,165,36,0.5);
+  box-shadow: 0 36px 64px -26px rgba(0,0,0,0.65), 0 0 0 1px rgba(245,165,36,0.15);
 }
-/* featured (middle) card stands out */
+/* featured card stands out */
 .testi-featured {
-  border-color: rgba(245,165,36,0.4);
+  border-color: rgba(245,165,36,0.42);
   background:
-    linear-gradient(165deg, rgba(245,165,36,0.12), transparent 55%),
+    linear-gradient(165deg, rgba(245,165,36,0.13), transparent 52%),
     var(--bg-secondary);
-  box-shadow: 0 22px 48px -22px rgba(245,165,36,0.35);
+  box-shadow: 0 24px 52px -22px rgba(245,165,36,0.38);
 }
-.testi-stars { position: relative; z-index: 1; color: #f5a524; font-size: 1.05rem; margin-bottom: 16px; letter-spacing: 3px; }
+.testi-featured::before { opacity: 1; transform: scaleX(1); }
+
+/* (project photos removed from review cards — photo + quote only) */
+/* inline star rating row above the quote */
+.testi-stars {
+  position: relative;
+  z-index: 3;
+  color: #f5a524;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
 .testi-quote {
   position: relative;
-  z-index: 1;
-  font-size: 0.95rem;
-  line-height: 1.8;
+  z-index: 2;
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 450;
+  line-height: 1.75;
+  letter-spacing: 0.1px;
   color: var(--text-primary);
-  margin-bottom: 26px;
+  margin: 0 0 24px;
 }
-.testi-footer { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--border); }
+.testi-quote[lang="hi"], .testi-quote[lang="or"] { line-height: 1.95; }
+.testi-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
 .testi-avatar {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: linear-gradient(135deg, #f5a524, #e8841a);
   border-radius: 50%;
   display: flex;
@@ -2827,14 +2871,22 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   justify-content: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   color: #fff;
   flex-shrink: 0;
   box-shadow: 0 8px 18px -8px rgba(245,165,36,0.6);
 }
-.testi-footer strong { display: flex; align-items: center; gap: 6px; font-size: 0.92rem; color: var(--text-primary); }
-.testi-footer > div > span { display: block; font-size: 0.8rem; color: var(--text-muted); }
+/* passport-style customer photo with a glowing ring */
+.testi-avatar.testi-photo {
+  object-fit: cover;
+  background: var(--bg-secondary);
+  border: none;
+  padding: 2px;
+  box-shadow: 0 0 0 2px rgba(245,165,36,0.6), 0 8px 18px -8px rgba(245,165,36,0.6);
+}
+.testi-footer strong { display: flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 700; font-size: 0.96rem; color: var(--text-primary); }
+.testi-footer > div > span { display: block; font-size: 0.8rem; color: var(--text-secondary); }
 .testi-verified {
   display: inline-flex;
   align-items: center;
@@ -2847,6 +2899,7 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   font-size: 0.62rem;
   font-weight: 700;
 }
+.testi-grid-actions { text-align: center; margin-top: 40px; }
 
 /* ============================================================
    SUSTAINABILITY
@@ -4218,24 +4271,30 @@ button.sc-back { background: none; border: none; cursor: pointer; font-family: i
   background: radial-gradient(ellipse at 50% 0%, rgba(137,234,95,0.10), transparent 65%);
 }
 [data-theme="clans-brand"] .testi-rating-summary { border-color: rgba(31,107,26,0.25); }
-[data-theme="clans-brand"] .testi-summary-stars,
-[data-theme="clans-brand"] .testi-stars,
+[data-theme="clans-brand"] .testi-summary-stars { color: #1f6b1a; }
 [data-theme="clans-brand"] .testi-mark { color: #1f6b1a; }
 [data-theme="clans-brand"] .testi-card {
   background: linear-gradient(165deg, rgba(137,234,95,0.08), transparent 45%), var(--bg-secondary);
 }
+[data-theme="clans-brand"] .testi-card::before {
+  background: linear-gradient(90deg, #1f6b1a, #89ea5f);
+}
 [data-theme="clans-brand"] .testi-card:hover {
-  border-color: rgba(31,107,26,0.40);
-  box-shadow: 0 30px 56px -24px rgba(22,51,0,0.18), 0 0 0 1px rgba(137,234,95,0.25);
+  border-color: rgba(31,107,26,0.45);
+  box-shadow: 0 36px 64px -26px rgba(22,51,0,0.2), 0 0 0 1px rgba(137,234,95,0.3);
 }
 [data-theme="clans-brand"] .testi-featured {
   border-color: rgba(31,107,26,0.40);
   background: linear-gradient(165deg, rgba(137,234,95,0.16), transparent 55%), var(--bg-secondary);
-  box-shadow: 0 22px 48px -22px rgba(31,107,26,0.30);
+  box-shadow: 0 24px 52px -22px rgba(31,107,26,0.32);
 }
 [data-theme="clans-brand"] .testi-avatar {
   background: linear-gradient(135deg, #1f6b1a, #2a8a23);
   box-shadow: 0 8px 18px -8px rgba(31,107,26,0.5);
+}
+[data-theme="clans-brand"] .testi-avatar.testi-photo {
+  background: var(--bg-secondary);
+  box-shadow: 0 0 0 2px rgba(31,107,26,0.6), 0 8px 18px -8px rgba(31,107,26,0.5);
 }
 
 /* ---- Convert hardcoded amber accents to brand green (Benefits) ---- */
